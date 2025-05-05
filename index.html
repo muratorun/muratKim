@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Murat ÖRÜN - Test Mühendisi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --text-color: #374151;
+            --light-text: #6b7280;
+            --bg-color: #f9fafb;
+            --card-bg: #ffffff;
+            --border-color: #e5e7eb;
+            --hover-color: #dbeafe;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        #home {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 4rem;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .hero-text h2 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--light-text);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-placeholder {
+            width: 300px;
+            height: 300px;
+            background-color: #e5e7eb;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: #9ca3af;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* About Section */
+        #hakkimda, #deneyim, #egitim, #beceriler, #sertifikalar, #iletisim {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--text-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Experience & Education */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--border-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .timeline-content h4 {
+            color: var(--light-text);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .timeline-content p {
+            color: var(--text-color);
+        }
+
+        /* Skills */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            flex: 1;
+            min-width: 250px;
+            max-width: 400px;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+
+        .skill-category h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        .skill-item {
+            margin-bottom: 1rem;
+        }
+
+        .skill-item p {
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .skill-bar {
+            height: 10px;
+            background-color: var(--border-color);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background-color: var(--primary-color);
+        }
+
+        /* Certificates */
+        .certificates-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .certificate-card {
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .certificate-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .certificate-card p {
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+
+        /* Contact */
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .contact-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 1rem;
+            min-width: 30px;
+        }
+
+        .contact-text h4 {
+            margin-bottom: 0.3rem;
+            font-weight: 500;
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* References */
+        .references-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .reference-card {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .reference-image {
+            width: 80px;
+            height: 80px;
+            background-color: var(--border-color);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--light-text);
+        }
+
+        .reference-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .reference-card p {
+            color: var(--light-text);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero-text p {
+                margin: 0 auto 2rem;
+            }
+
+            .timeline::after {
+                left: 40px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 80px;
+                padding-right: 20px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-item::after {
+                left: 30px;
+            }
+
+            .timeline-item:nth-child(even)::after {
+                left: 30px;
+            }
+
+            .contact-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--card-bg);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 2rem;
+                transition: left 0.3s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 1.5rem 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Murat ÖRÜN</a>
+                <ul class="nav-links">
+                    <li><a href="#home">Ana Sayfa</a></li>
+                    <li><a href="#hakkimda">Hakkımda</a></li>
+                    <li><a href="#deneyim">Deneyim</a></li>
+                    <li><a href="#egitim">Eğitim</a></li>
+                    <li><a href="#beceriler">Beceriler</a></li>
+                    <li><a href="#sertifikalar">Sertifikalar</a></li>
+                    <li><a href="#iletisim">İletişim</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Murat ÖRÜN</h1>
+                    <h2>Test Mühendisi</h2>
+                    <p>2019 yılından bu yana Turkcell içi uygulamaların test süreçlerinde görev alıyorum. RPA, Selenium ve Testroyer kullanarak uçtan uca test otomasyon çözümleri tasarlıyor ve hayata geçiriyorum.</p>
+                    <a href="#iletisim" class="btn">İletişime Geç</a>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="hakkimda">
+        <div class="container">
+            <h2 class="section-title">Hakkımda</h2>
+            <div class="about-content">
+                <p style="max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.1rem; line-height: 1.8;">
+                    Otomasyon ve RPA alanındaki uzmanlığım sayesinde tekrar eden testleri hızlandırıyor, insan hatasını minimize ediyor ve kalite güvence süreçlerine değer katıyorum. Şu anda uygulamaların geliştirme ve devreye alım testlerini yürütüyorum. Programlama bilgim ve teknoloji alanındaki deneyimim ile test süreçlerini iyileştirme konusunda yenilikçi çözümler üretmekteyim.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="deneyim">
+        <div class="container">
+            <h2 class="section-title">İş Deneyimi</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Test Mühendisi</h3>
+                        <h4>Turkcell Global Bilgi | 2019 - Günümüz</h4>
+                        <p>Turkcell içi uygulamaların test süreçlerinde görev alıyorum. RPA, Selenium ve Testroyer kullanarak uçtan uca test otomasyon çözümleri tasarlıyor ve hayata geçiriyorum.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Sosyal Medya Yönetimi</h3>
+                        <h4>Turkcell Global Bilgi | 2012 - 2018</h4>
+                        <p>Sosyal medya platformlarında içerik yönetimi, kampanya planlaması ve müşteri iletişimi konularında çalıştım.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="egitim">
+        <div class="container">
+            <h2 class="section-title">Eğitim</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Yıldız Teknik Üniversitesi</h3>
+                        <h4>Bilgisayar Mühendisliği ABD - Bilgi Teknolojileri (Yüksek Lisans) | 2025 - Devam Ediyor</h4>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>İstanbul Üniversitesi</h3>
+                        <h4>Yönetim Bilişim Sistemleri | 2019 - 2024</h4>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Selçuk Üniversitesi</h3>
+                        <h4>Bilgisayar Programcılığı | 2008 - 2010</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="beceriler">
+        <div class="container">
+            <h2 class="section-title">Beceriler</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Teknik Beceriler</h3>
+                    <div class="skill-item">
+                        <p>Python <span>90%</span></p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <p>RPA <span>95%</span></p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <p>Selenium <span>90%</span></p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <p>JavaScript <span>85%</span></p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <p>Dart <span>80%</span></p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <p>C# <span>75%</span></p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Kişisel Beceriler</h3>
+                    <div class="skill-item">
+                        <p>Ekip Çalışması <span>95%</span></p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <p>Liderlik <span>90%</span></p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <p>Analitik Düşünme <span>95%</span></p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <p>Kriz Yönetimi <span>85%</span></p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sertifikalar">
+        <div class="container">
+            <h2 class="section-title">Sertifikalar</h2>
+            <div class="certificates-container">
+                <div class="certificate-card">
+                    <h3>Focus RPA</h3>
+                    <p>Turkcell Global Bilgi | 2020-2024 (Tüm Yıllar)</p>
+                </div>
+                <div class="certificate-card">
+                    <h3>Focus Lean Agile</h3>
+                    <p>Turkcell Global Bilgi | 2024</p>
+                </div>
+                <div class="certificate-card">
+                    <h3>Focus İnovasyon</h3>
+                    <p>İstanbul Üniversitesi | 2024</p>
+                </div>
+                <div class="certificate-card">
+                    <h3>Focus Agile Temeller ve Uygulamaları</h3>
+                    <p>Turkcell | 2023</p>
+                </div>
+                <div class="certificate-card">
+                    <h3>Dijital İş Dönüşümü</h3>
+                    <p>Turkcell | 2019</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="iletisim">
+        <div class="container">
+            <h2 class="section-title">İletişim</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>İletişim Bilgileri</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Telefon</h4>
+                            <p>0532 555 3077</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>E-posta</h4>
+                            <p>muratorun88@gmail.com</p>
+                        </div>
+                    </div>
+   /*                 <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Adres</h4>
+                            <p>Uğurmumcu mah. Şht. Turan Damgacı sok. No:36 D:11<br>Kartal/İstanbul</p>
+                        </div>
+                    </div>
+                    <div class="references-container" style="margin-top: 3rem;">
+                        <div class="reference-card">
+                            <div class="reference-image">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h3>Tuğba KAYA</h3>
+                            <p>05332100118</p>
+                        </div>
+                        <div class="reference-card">
+                            <div class="reference-image">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h3>Doruk KÜÇÜKER</h3>
+                            <p>05322104497</p>
+                        </div>
+                        <div class="reference-card">
+                            <div class="reference-image">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h3>Zeynep BOSTAN</h3>
+                            <p>05322101089</p>
+                        </div>
+                    </div>
+                </div>
+              */
+                <div class="contact-form">
+                    <h3>Mesaj Gönder</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">İsim</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-posta</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Konu</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mesaj</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Gönder</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Murat ÖRÜN. Tüm Hakları Saklıdır.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Nav Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                navLinks.classList.remove('active');
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Mesajınız başarıyla gönderildi. En kısa sürede size dönüş yapılacaktır.');
+            this.reset();
+        });
+
+        // Active Nav Link on Scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');

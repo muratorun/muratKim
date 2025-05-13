@@ -338,7 +338,7 @@
                 height: 200px;
             }
 
-            .theme-switch {
+            .theme-switch-nav {
                 position: absolute;
                 top: 1rem;
                 right: 1rem;
@@ -412,6 +412,9 @@
 
 <body>
     <header>
+        <div class="theme-switch-header" id="theme-switch-header">
+            <i class="fas fa-moon"></i>
+        </div>
         <div class="container">
             <div class="hero">
                 <div class="hero-text">
@@ -436,7 +439,7 @@
                 <li><a href="#projects">Projeler</a></li>
                 <li><a href="#contact">İletişim</a></li>
             </ul>
-            <div class="theme-switch" id="theme-switch">
+            <div class="theme-switch-nav" id="theme-switch-nav">
                 <i class="fas fa-moon"></i>
             </div>
         </div>
@@ -630,18 +633,48 @@
 
     <script>
         // Tema değiştirme
-        const themeSwitch = document.getElementById('theme-switch');
+        const themeSwitch1 = document.getElementById('theme-switch-header');
+        const themeSwitch2 = document.getElementById('theme-switch-nav');
         const body = document.body;
 
-        themeSwitch.addEventListener('click', () => {
+        // Header'daki tema değiştirme butonu
+        themeSwitch1.addEventListener('click', () => {
+            toggleTheme();
+        });
+
+        // Navbar'daki tema değiştirme butonu
+        themeSwitch2.addEventListener('click', () => {
+            toggleTheme();
+        });
+
+        // Tema değiştirme fonksiyonu
+        function toggleTheme() {
             body.classList.toggle('dark-mode');
 
             if (body.classList.contains('dark-mode')) {
-                themeSwitch.innerHTML = '<i class="fas fa-sun"></i>';
+                themeSwitch1.innerHTML = '<i class="fas fa-sun"></i>';
+                themeSwitch2.innerHTML = '<i class="fas fa-sun"></i>';
             } else {
-                themeSwitch.innerHTML = '<i class="fas fa-moon"></i>';
+                themeSwitch1.innerHTML = '<i class="fas fa-moon"></i>';
+                themeSwitch2.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        }
+
+        // Kaydırma sırasında header butonunu gizle, navbar butonunu göster
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 100) {
+                themeSwitch1.style.opacity = '0';
+                themeSwitch1.style.visibility = 'hidden';
+                themeSwitch2.style.opacity = '1';
+            } else {
+                themeSwitch1.style.opacity = '1';
+                themeSwitch1.style.visibility = 'visible';
+                themeSwitch2.style.opacity = '0';
             }
         });
+
+        // Başlangıçta navbar butonunu gizle
+        themeSwitch2.style.opacity = '0';
 
         // Footer yılını otomatik güncelle
         document.getElementById('current-year').textContent = new Date().getFullYear();

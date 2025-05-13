@@ -643,12 +643,18 @@
 
             if (body.classList.contains('dark-mode')) {
                 themeSwitch1.innerHTML = '<i class="fas fa-sun"></i>';
-                themeSwitch2.innerHTML = '<i class="fas fa-sun"></i>';
+                themeSwitch2.innerHTML = '<i class="fas fa-sun" style="color:#1e272e"></i>';
             } else {
                 themeSwitch1.innerHTML = '<i class="fas fa-moon"></i>';
-                themeSwitch2.innerHTML = '<i class="fas fa-moon"></i>';
+                themeSwitch2.innerHTML = '<i class="fas fa-moon" style="color:#1e272e"></i>';
             }
         }
+
+        // Sayfa yüklendiğinde ikonu ayarla
+        window.addEventListener('DOMContentLoaded', function () {
+            // Başlangıçta navbar butonunun ikonunu doğru renkte ayarla
+            themeSwitch2.innerHTML = '<i class="fas fa-moon" style="color:#1e272e"></i>';
+        });
 
         // Her iki buton için de click event listener ekle
         themeSwitch1.addEventListener('click', toggleTheme);

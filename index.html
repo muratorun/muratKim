@@ -338,7 +338,7 @@
                 height: 200px;
             }
 
-            .theme-switch-nav {
+            #theme-switch-nav {
                 position: absolute;
                 top: 1rem;
                 right: 1rem;
@@ -412,7 +412,7 @@
 
 <body>
     <header>
-        <div class="theme-switch-header" id="theme-switch-header">
+        <div class="theme-switch" id="theme-switch-header">
             <i class="fas fa-moon"></i>
         </div>
         <div class="container">
@@ -439,7 +439,7 @@
                 <li><a href="#projects">Projeler</a></li>
                 <li><a href="#contact">İletişim</a></li>
             </ul>
-            <div class="theme-switch-nav" id="theme-switch-nav">
+            <div class="theme-switch" id="theme-switch-nav" style="display: none;">
                 <i class="fas fa-moon"></i>
             </div>
         </div>
@@ -637,16 +637,6 @@
         const themeSwitch2 = document.getElementById('theme-switch-nav');
         const body = document.body;
 
-        // Header'daki tema değiştirme butonu
-        themeSwitch1.addEventListener('click', () => {
-            toggleTheme();
-        });
-
-        // Navbar'daki tema değiştirme butonu
-        themeSwitch2.addEventListener('click', () => {
-            toggleTheme();
-        });
-
         // Tema değiştirme fonksiyonu
         function toggleTheme() {
             body.classList.toggle('dark-mode');
@@ -660,21 +650,20 @@
             }
         }
 
-        // Kaydırma sırasında header butonunu gizle, navbar butonunu göster
+        // Her iki buton için de click event listener ekle
+        themeSwitch1.addEventListener('click', toggleTheme);
+        themeSwitch2.addEventListener('click', toggleTheme);
+
+        // Kaydırma sırasında butonları değiştir
         window.addEventListener('scroll', function () {
             if (window.scrollY > 100) {
-                themeSwitch1.style.opacity = '0';
-                themeSwitch1.style.visibility = 'hidden';
-                themeSwitch2.style.opacity = '1';
+                themeSwitch1.style.display = 'none';
+                themeSwitch2.style.display = 'flex';
             } else {
-                themeSwitch1.style.opacity = '1';
-                themeSwitch1.style.visibility = 'visible';
-                themeSwitch2.style.opacity = '0';
+                themeSwitch1.style.display = 'flex';
+                themeSwitch2.style.display = 'none';
             }
         });
-
-        // Başlangıçta navbar butonunu gizle
-        themeSwitch2.style.opacity = '0';
 
         // Footer yılını otomatik güncelle
         document.getElementById('current-year').textContent = new Date().getFullYear();

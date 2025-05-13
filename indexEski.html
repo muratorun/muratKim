@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Murat ÖRÜN - CV</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --text-color: #333;
+            --light-color: #f8f9fa;
+            --border-color: #e0e0e0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .profile-image-container {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            flex-shrink: 0;
+        }
+        
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        .header-text h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .header-text h2 {
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: #bdc3c7;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .contact-item i {
+            color: var(--secondary-color);
+        }
+        
+        /* Main Content */
+        .main-content {
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .section {
+            padding: 40px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-title i {
+            color: var(--secondary-color);
+        }
+        
+        /* About Section */
+        .about-content {
+            font-size: 1.1rem;
+        }
+        
+        /* Experience and Education */
+        .timeline {
+            margin-top: 20px;
+        }
+        
+        .timeline-item {
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline-item:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+        }
+        
+        .timeline-item:after {
+            content: "";
+            position: absolute;
+            left: 5px;
+            top: 25px;
+            width: 2px;
+            height: calc(100% - 10px);
+            background-color: var(--border-color);
+        }
+        
+        .timeline-item:last-child:after {
+            display: none;
+        }
+        
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-subtitle {
+            font-size: 1rem;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+        
+        .timeline-date {
+            font-size: 0.9rem;
+            color: #777;
+            font-style: italic;
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .skill-category {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .skill-category h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .skill-list {
+            list-style-type: none;
+        }
+        
+        .skill-item {
+            margin-bottom: 15px;
+        }
+        
+        .skill-name {
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .skill-name span:last-child {
+            color: var(--secondary-color);
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .skill-level {
+            height: 100%;
+            background-color: var(--secondary-color);
+            border-radius: 4px;
+        }
+        
+        /* Certificates Section */
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .certificate-item {
+            background-color: var(--light-color);
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .certificate-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .certificate-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .certificate-issuer {
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        .certificate-date {
+            font-size: 0.85rem;
+            color: var(--secondary-color);
+            margin-top: 5px;
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-input:focus,
+        .form-textarea:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+        }
+        
+        .form-textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        .submit-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .contact-info {
+                justify-content: center;
+            }
+            
+            .section {
+                padding: 30px 20px;
+            }
+            
+            .contact-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+        }
+
+        /* Add a specialized styles for skills display */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .skill-tag {
+            background-color: var(--light-color);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background-color: var(--secondary-color);
+            color: white;
+            border-color: var(--secondary-color);
+        }
+
+        /* Image upload feature */
+        .profile-upload {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .upload-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            border-radius: 50%;
+        }
+
+        .profile-upload:hover .upload-overlay {
+            opacity: 1;
+        }
+
+        .upload-icon {
+            color: white;
+            font-size: 2rem;
+        }
+
+        #profile-input {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="profile-image-container profile-upload">
+                    <img src="/api/placeholder/200/200" alt="Murat ÖRÜN" class="profile-image" id="profile-preview">
+                    <div class="upload-overlay">
+                        <i class="fas fa-camera upload-icon"></i>
+                    </div>
+                    <input type="file" id="profile-input" accept="image/*">
+                </div>
+                <div class="header-text">
+                    <h1>Murat ÖRÜN</h1>
+                    <h2>Test Mühendisi</h2>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>0532 555 3077</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>muratorun88@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Uğurmumcu mah. Şht. Turan Damgacı sok. No:36 D:11, Kartal/İstanbul</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <main class="main-content">
+            <section class="section" id="about">
+                <h2 class="section-title"><i class="fas fa-user"></i> Hakkımda</h2>
+                <div class="about-content">
+                    <p>2019 yılından bu yana Turkcell içi uygulamaların test süreçlerinde görev alıyorum. RPA, Selenium ve Testroyer kullanarak uçtan uca test otomasyon çözümleri tasarlıyor ve hayata geçiriyorum. Otomasyon ve RPA alanındaki uzmanlığım sayesinde tekrar eden testleri hızlandırıyor, insan hatasını minimize ediyor ve kalite güvence süreçlerine değer katıyorum. Şu anda uygulamaların geliştirme ve devreye alım testlerini yürütüyorum.</p>
+                </div>
+            </section>
+
+            <section class="section" id="experience">
+                <h2 class="section-title"><i class="fas fa-briefcase"></i> İş Deneyimi</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3 class="timeline-title">Test Mühendisi</h3>
+                        <p class="timeline-subtitle">Turkcell Global Bilgi</p>
+                        <p class="timeline-date">2019 - Günümüz</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 class="timeline-title">Sosyal Medya Yönetimi</h3>
+                        <p class="timeline-subtitle">Turkcell Global Bilgi</p>
+                        <p class="timeline-date">2012 - 2018</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="education">
+                <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Eğitim</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3 class="timeline-title">Yıldız Teknik Üniversitesi</h3>
+                        <p class="timeline-subtitle">Bilgisayar Mühendisliği ABD - Bilgi Teknolojileri (Yüksek Lisans)</p>
+                        <p class="timeline-date">2025 - Devam Ediyor</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 class="timeline-title">İstanbul Üniversitesi</h3>
+                        <p class="timeline-subtitle">Yönetim Bilişim Sistemleri</p>
+                        <p class="timeline-date">2019 - 2024</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 class="timeline-title">Selçuk Üniversitesi</h3>
+                        <p class="timeline-subtitle">Bilgisayar Programcılığı</p>
+                        <p class="timeline-date">2008 - 2010</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="certificates">
+                <h2 class="section-title"><i class="fas fa-certificate"></i> Sertifikalar</h2>
+                <div class="certificates-grid">
+                    <div class="certificate-item">
+                        <h3 class="certificate-title">Focus RPA</h3>
+                        <p class="certificate-issuer">Turkcell Global Bilgi</p>
+                        <p class="certificate-date">2020-2024 (Tüm Yıllar)</p>
+                    </div>
+                    <div class="certificate-item">
+                        <h3 class="certificate-title">Focus Lean Agile</h3>
+                        <p class="certificate-issuer">Turkcell Global Bilgi</p>
+                        <p class="certificate-date">2024</p>
+                    </div>
+                    <div class="certificate-item">
+                        <h3 class="certificate-title">Focus İnovasyon</h3>
+                        <p class="certificate-issuer">İstanbul Üniversitesi</p>
+                        <p class="certificate-date">2024</p>
+                    </div>
+                    <div class="certificate-item">
+                        <h3 class="certificate-title">Focus Agile Temeller ve Uygulamaları</h3>
+                        <p class="certificate-issuer">Turkcell</p>
+                        <p class="certificate-date">2023</p>
+                    </div>
+                    <div class="certificate-item">
+                        <h3 class="certificate-title">Dijital İş Dönüşümü</h3>
+                        <p class="certificate-issuer">Turkcell</p>
+                        <p class="certificate-date">2019</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="skills">
+                <h2 class="section-title"><i class="fas fa-cogs"></i> Beceriler</h2>
+                
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3>Kişisel Beceriler</h3>
+                        <div class="skills-list">
+                            <div class="skill-tag">Ekip Çalışması</div>
+                            <div class="skill-tag">Liderlik</div>
+                            <div class="skill-tag">Analitik Düşünme</div>
+                            <div class="skill-tag">Kriz Yönetimi</div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Programlama Dilleri</h3>
+                        <div class="skills-list">
+                            <div class="skill-tag">Python</div>
+                            <div class="skill-tag">Dart</div>
+                            <div class="skill-tag">JavaScript</div>
+                            <div class="skill-tag">C#</div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Test Araçları</h3>
+                        <div class="skills-list">
+                            <div class="skill-tag">RPA</div>
+                            <div class="skill-tag">Selenium</div>
+                            <div class="skill-tag">Testroyer</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="contact">
+                <h2 class="section-title"><i class="fas fa-envelope"></i> İletişim</h2>
+                <form id="contact-form" class="contact-form" action="https://formsubmit.co/el/maruzo" method="POST">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Adınız</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">E-posta Adresiniz</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="subject" class="form-label">Konu</label>
+                        <input type="text" id="subject" name="subject" class="form-input" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="message" class="form-label">Mesajınız</label>
+                        <textarea id="message" name="message" class="form-textarea" required></textarea>
+                    </div>
+                        <!-- Spam koruması -->
+                    <input type="hidden" name="_captcha" value="false">
+                    <!-- Form başarıyla gönderildikten sonra aynı sayfaya dön -->
+                    <input type="hidden" name="_next" value="window.location.href">
+                    <!-- Konu satırı -->
+                    <input type="hidden" name="_subject" value="CV Web Sitesi - İletişim Formu">
+                    <div class="form-group full-width">
+                        <button type="submit" class="submit-btn">Gönder</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Murat ÖRÜN. Tüm hakları saklıdır.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Image upload functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const profileInput = document.getElementById('profile-input');
+            const profilePreview = document.getElementById('profile-preview');
+            const profileUpload = document.querySelector('.profile-upload');
+            
+            profileUpload.addEventListener('click', function() {
+                profileInput.click();
+            });
+            
+            profileInput.addEventListener('change', function() {
+                const file = this.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        profilePreview.src = e.target.result;
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
+            
+            // FormSubmit kullandığımız için JavaScript ile form işlemeye gerek yok
+            // Form otomatik olarak FormSubmit tarafından işlenecek
+        });
+    </script>
+</body>
+</html>

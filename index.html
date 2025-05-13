@@ -302,7 +302,6 @@
             font-size: 1.5rem;
         }
 
-        /* Responsive styles */
         @media (max-width: 768px) {
             .hero {
                 flex-direction: column-reverse;
@@ -322,6 +321,9 @@
             nav .container {
                 flex-direction: column;
                 gap: 1rem;
+                position: relative;
+                padding-top: 3rem;
+                /* Navbar tema butonu için yer açıyoruz */
             }
 
             nav ul {
@@ -338,10 +340,11 @@
                 height: 200px;
             }
 
+            /* Mobil görünümde tema butonları düzeni */
+            #theme-switch-header,
             #theme-switch-nav {
-                position: absolute;
-                top: 1rem;
-                right: 1rem;
+                top: 0.7rem;
+                right: 0.7rem;
             }
         }
 
@@ -632,43 +635,73 @@
     </footer>
 
     <script>
-        // Tema değiştirme
-        const themeSwitch1 = document.getElementById('theme-switch-header');
-        const themeSwitch2 = document.getElementById('theme-switch-nav');
+        // DOM elementlerine erişim
+        const themeHeader = document.getElementById('theme-switch-header');
+        const themeNav = document.getElementById('theme-switch-nav');
         const body = document.body;
 
-        // Tema değiştirme fonksiyonu
+        /**
+         * Tema durumuna göre butonların görünümünü günceller
+         */
+        function updateThemeButtonsAppearance() {
+            const isDarkMode = body.classList.contains('dark-mode');
+
+            // Header butonu güncellemesi
+            themeHeader.innerHTML = isDarkMode
+                ? '<i class="fas fa-sun"></i>'
+                : '<i class="fas fa-moon"></i>';
+
+            // Navbar butonu güncellemesi - HER ZAMAN belirgin renk ikon kullanır
+            themeNav.innerHTML = isDarkMode
+                ? '<i class="fas fa-sun" style="color:#0f4c81;"></i>'
+                : '<i class="fas fa-moon" style="color:#0f4c81;"></i>';
+        }
+
+        /**
+         * Tema değiştirme fonksiyonu
+         */
         function toggleTheme() {
             body.classList.toggle('dark-mode');
+            updateThemeButtonsAppearance();
 
-            if (body.classList.contains('dark-mode')) {
-                themeSwitch1.innerHTML = '<i class="fas fa-sun"></i>';
-                themeSwitch2.innerHTML = '<i class="fas fa-sun" style="color:#1e272e"></i>';
+            // Tercihi localStorage'a kaydet
+            const isDarkMode = body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+        }
+
+        // Kaydırma pozisyonuna göre butonları göster/gizle
+        function updateButtonVisibility() {
+            if (window.scrollY > 100) {
+                themeHeader.style.opacity = '0';
+                themeHeader.style.visibility = 'hidden';
+                themeNav.style.display = 'flex';
             } else {
-                themeSwitch1.innerHTML = '<i class="fas fa-moon"></i>';
-                themeSwitch2.innerHTML = '<i class="fas fa-moon" style="color:#1e272e"></i>';
+                themeHeader.style.opacity = '1';
+                themeHeader.style.visibility = 'visible';
+                themeNav.style.display = 'none';
             }
         }
 
-        // Sayfa yüklendiğinde ikonu ayarla
-        window.addEventListener('DOMContentLoaded', function () {
-            // Başlangıçta navbar butonunun ikonunu doğru renkte ayarla
-            themeSwitch2.innerHTML = '<i class="fas fa-moon" style="color:#1e272e"></i>';
-        });
+        // Sayfa yüklendiğinde
+        document.addEventListener('DOMContentLoaded', function () {
+            // Kayıtlı tema tercihini kontrol et
+            const savedDarkMode = localStorage.getItem('darkMode') === 'true';
 
-        // Her iki buton için de click event listener ekle
-        themeSwitch1.addEventListener('click', toggleTheme);
-        themeSwitch2.addEventListener('click', toggleTheme);
-
-        // Kaydırma sırasında butonları değiştir
-        window.addEventListener('scroll', function () {
-            if (window.scrollY > 100) {
-                themeSwitch1.style.display = 'none';
-                themeSwitch2.style.display = 'flex';
-            } else {
-                themeSwitch1.style.display = 'flex';
-                themeSwitch2.style.display = 'none';
+            if (savedDarkMode) {
+                body.classList.add('dark-mode');
             }
+
+            // Buton görünümlerini ayarla
+            updateThemeButtonsAppearance();
+
+            // Buton görünürlüğünü ayarla (sayfa başlangıcında)
+            updateButtonVisibility();
+
+            // Event listener'ları ayarla
+            themeHeader.addEventListener('click', toggleTheme);
+            themeNav.addEventListener('click', toggleTheme);
+
+            window.addEventListener('scroll', updateButtonVisibility);
         });
 
         // Footer yılını otomatik güncelle

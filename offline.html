@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bağlantı Kesildi - Murat ÖRÜN</title>
+    <style>
+        :root {
+            --primary-color: #1e272e;
+            --accent-color: #20c9c1;
+            --bg-color: #121212;
+            --text-color: #f5f5f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .offline-container {
+            max-width: 600px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        p {
+            margin-bottom: 25px;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .icon {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .retry-btn {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .retry-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <div class="icon">⚠️</div>
+        <h1>İnternet Bağlantınız Kesildi</h1>
+        <p>Görünüşe göre internet bağlantınız yok. Murat ÖRÜN'ün kişisel sitesine erişmek için lütfen internet bağlantınızı kontrol edin ve tekrar deneyin.</p>
+        <button class="retry-btn" onclick="window.location.reload()">Tekrar Dene</button>
+    </div>
+</body>
+</html>

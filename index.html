@@ -4,80 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Murat ÖRÜN | Yakında Burada</title>
-    
-    <!-- Anında CSS Yükleme (FOUT önleme) -->
-    <style>
-        /* Kritik Render Yolu CSS */
-        body {
-            background-color: #121212;
-            color: #f5f5f5;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #121212;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-        .loader-spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            border-top-color: #20c9c1;
-            animation: spin 1s ease-in-out infinite;
-        }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-    </style>
-    
-    <!-- SEO Meta Etiketleri -->
-    <meta name="description" content="Murat ÖRÜN - QA Engineer, Siber Güvenlik Uzmanı ve Yapay Zeka Meraklısı. Yakında yayında olacak kişisel web sitesi.">
-    <meta name="keywords" content="Murat ÖRÜN, QA Engineer, Test Otomasyonu, Siber Güvenlik, Yapay Zeka, CI/CD">
-    <meta name="author" content="Murat ÖRÜN">
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#121212">
-    
-    <!-- Open Graph Meta Etiketleri (Sosyal Medya Paylaşımı İçin) -->
-    <meta property="og:title" content="Murat ÖRÜN | Yakında Burada">
-    <meta property="og:description" content="QA Engineer, Siber Güvenlik Uzmanı ve Yapay Zeka Meraklısı. Yakında yayında olacak kişisel web sitesi.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://muratourn.github.io/preview-image.jpg">
-    <meta property="og:image:alt" content="Murat ÖRÜN - Kişisel Website Preview">
-    
-    <!-- JSON-LD Yapısal Veri -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Murat ÖRÜN Kişisel Site",
-        "url": "https://muratourn.github.io/",
-        "description": "QA Engineer, Siber Güvenlik Uzmanı ve Yapay Zeka Meraklısı'nın kişisel sitesi – çok yakında yayında."
-    }
-    </script>
-    <meta http-equiv="x-dns-prefetch-control" content="on">
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-    
-    <!-- İlerleme çubuğunu tamamlamak için meta refresh -->
-    <meta http-equiv="refresh" content="0;URL='javascript:void(0)'">
-    
-    <!-- Favicon ve PWA Desteği -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
-    <link rel="manifest" href="/manifest.json">
-    
-    <!-- Font Awesome CSS - Performans İyileştirmeleri -->
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --primary-color: #1e272e;
@@ -104,7 +31,6 @@
             flex-direction: column;
             transition: var(--transition);
             overflow-x: hidden;
-            line-height: 1.6;
         }
 
         .container {
@@ -238,15 +164,9 @@
         .skill-badge:hover {
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28);
         }
-        
-        /* Spring Effect for Interactive Elements */
-        .countdown-item:hover, .social-link:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-            transition: transform 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28), box-shadow 0.3s ease;
-        }
+
+        /* Social Links Styles */
         .social-links {
             display: flex;
             justify-content: center;
@@ -330,18 +250,14 @@
             left: 0;
         }
 
-        /* Responsive Styles - İyileştirilmiş */
+        /* Responsive Styles */
         @media (max-width: 768px) {
             .coming-soon h1 {
                 font-size: 2rem;
             }
-            
-            .job-title {
-                font-size: 1.2rem;
-            }
 
             .countdown {
-                gap: 15px;
+                gap: 10px;
             }
 
             .countdown-item {
@@ -352,31 +268,24 @@
             .countdown-value {
                 font-size: 2rem;
             }
-            
-            .skills-preview {
-                gap: 10px;
-                margin-top: 20px;
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-button {
+                width: 100%;
             }
         }
 
         @media (max-width: 480px) {
             .coming-soon h1 {
                 font-size: 1.8rem;
-                margin-bottom: 10px;
-            }
-            
-            .job-title {
-                font-size: 1.1rem;
-                margin-bottom: 15px;
-            }
-            
-            .coming-soon p {
-                font-size: 1rem;
-                margin-bottom: 25px;
             }
 
-            .countdown {
-                gap: 8px;
+            .profile-img {
+                width: 120px;
+                height: 120px;
             }
 
             .countdown-item {
@@ -391,82 +300,10 @@
             .countdown-label {
                 font-size: 0.8rem;
             }
-            
-            .skill-badge {
-                padding: 6px 12px;
-                font-size: 0.8rem;
-            }
-        }
-        
-        /* İlave Erişilebilirlik Özellikleri */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--accent-color);
-            color: white;
-            padding: 8px;
-            z-index: 100;
-            transition: top 0.3s;
-        }
-        
-        .skip-link:focus {
-            top: 0;
-        }
-        
-        /* Yükleme Göstergesi */
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--bg-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-        
-        .loader.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-        
-        .loader-spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            border-top-color: var(--accent-color);
-            animation: spin 1s ease-in-out infinite;
-        }
-        
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
         }
     </style>
 </head>
 <body class="dark-mode">
-    <!-- Erişilebilirlik Skip Link -->
-    <a href="#main-content" class="skip-link">Ana içeriğe atla</a>
-    
-    <!-- Yükleme Göstergesi -->
-    <div class="loader" id="page-loader">
-        <div class="loader-spinner" aria-label="Sayfa yükleniyor"></div>
-    </div>
-    
-    <!-- Tamamlanma İndikatörü - Gizli iframe -->
-    <iframe src="about:blank" style="width:0;height:0;border:0;visibility:hidden" onload="document.dispatchEvent(new Event('DOMContentLoaded'));window.dispatchEvent(new Event('load'));"></iframe>
-    <noscript>
-        <div style="background-color: #e33333; color: white; padding: 15px; text-align: center; margin: 20px; border-radius: 5px;">
-            <p>Bu site JavaScript gerektiriyor. Lütfen tarayıcınızda JavaScript'i etkinleştirin ve sayfayı yenileyin.</p>
-        </div>
-    </noscript>
-    
     <div id="particles-js"></div>
     
     <header>
@@ -475,17 +312,17 @@
         </div>
     </header>
     
-    <main id="main-content">
+    <main>
         <div class="container">
             <div class="coming-soon">
                 <!-- Profil resmi kaldırıldı -->
                 
                 <h1 class="animated delay-1">Murat ÖRÜN</h1>
-                <p class="job-title animated delay-1">QA Engineer | Siber Güvenlik Uzmanı | Yapay Zeka Meraklısı</p>
+                <p class="job-title animated delay-1">QA Engineer | Cyber Security Specialist | AI Enthusiast</p>
                 
                 <p class="animated delay-2">Kısa süre sonra erişime açılacak kişisel sitemde; özgeçmişim, uzmanlık alanlarım ve tamamladığım projeleri kapsamlı şekilde bulabilirsiniz. Çok yakında görüşmek üzere!</p>
                 
-                <div class="countdown animated delay-2" aria-live="polite">
+                <div class="countdown animated delay-2">
                     <div class="countdown-item">
                         <div class="countdown-value" id="days">00</div>
                         <div class="countdown-label">Gün</div>
@@ -530,95 +367,9 @@
         </div>
     </footer>
     
-    <!-- Performans için script etiketleri body sonuna taşındı -->
-    <!-- Particles.js yüklenmesi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // Particles.js'i önceden yükle
-        document.addEventListener('DOMContentLoaded', function() {
-            const scriptLoaded = typeof particlesJS !== 'undefined';
-            if (!scriptLoaded) {
-                const script = document.createElement('script');
-                script.src = 'https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js';
-                script.async = false; // Senkron yükleme
-                script.onload = function() {
-                    console.log('particles.js yüklendi');
-                    initParticles();
-                };
-                document.body.appendChild(script);
-            } else {
-                initParticles();
-            }
-        });
-    </script>
-    
-    <!-- Basit Analytics Kodu -->
-    <script>
-        // Üretime geçmeden önce kaldırılacak & gerçek analitik koduyla değiştirilecek
-        if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
-            // Burada Google Analytics veya başka bir analitik kodunu ekleyebilirsiniz
-            // Örnek: Google Analytics
-            /*
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-XXXXXXXXXX');
-            */
-            
-            // Şimdilik sadece geliştirme için basit izleme
-            const pageLoadTime = window.performance.timing.domContentLoadedEventEnd - 
-                               window.performance.timing.navigationStart;
-            console.log('Sayfa yükleme süresi:', pageLoadTime + 'ms');
-            
-            // Tarayıcı ve ekran bilgilerini kaydet
-            const browserInfo = {
-                userAgent: navigator.userAgent,
-                language: navigator.language,
-                screenWidth: window.screen.width,
-                screenHeight: window.screen.height,
-                viewportWidth: window.innerWidth,
-                viewportHeight: window.innerHeight
-            };
-            
-            // Hata yakalama
-            window.addEventListener('error', function(e) {
-                // Üretime geçmeden önce Sentry veya başka bir hata izleme sistemine entegre edin
-            });
-        }
-    </script>
-    
-    <script>
-        // Sayfa yükleme olayını ve yükleme göstergesini yönetme
-        // Sayfa yükleme olayını ve yükleme göstergesini yönetme
-        document.addEventListener('DOMContentLoaded', function() {
-            // Yükleme göstergesini 500ms sonra DOM'dan tamamen kaldır
-            setTimeout(() => {
-                const loader = document.getElementById('page-loader');
-                if (loader) {
-                    // Önce görsel geçiş için sınıfı ekle
-                    loader.classList.add('hidden');
-                    
-                    // Animasyon bittikten sonra DOM'dan tamamen kaldır (500ms sonra)
-                    setTimeout(() => {
-                        if (loader.parentNode) {
-                            loader.parentNode.removeChild(loader);
-                        }
-                    }, 500);
-                }
-            }, 500);
-            
-            // Set current year
-            document.getElementById('current-year').textContent = new Date().getFullYear();
-            
-            // Initialize particles with dark theme
-            initParticles();
-            
-            // Start countdown - Düzeltilmiş versiyon
-            updateCountdown();
-            // CountdownTimer değişkeni global olarak tanımlanmalı
-            window.countdownTimer = setInterval(updateCountdown, 1000);
-        });
-        
-        // Countdown Timer - Düzeltilmiş
+        // Countdown Timer
         function updateCountdown() {
             // Set launch date to June 30, 2025
             const launchDate = new Date("June 30, 2025 00:00:00").getTime();
@@ -639,214 +390,119 @@
             
             // If the countdown is over
             if (distance < 0) {
-                clearInterval(window.countdownTimer);
+                clearInterval(countdownTimer);
                 document.getElementById('days').textContent = "00";
                 document.getElementById('hours').textContent = "00";
                 document.getElementById('minutes').textContent = "00";
                 document.getElementById('seconds').textContent = "00";
                 
-                // Geri sayım bittiğinde mesaj gösterme
-                const countdownElement = document.querySelector('.countdown');
-                if (countdownElement) {
-                    const message = document.createElement('div');
-                    message.className = 'countdown-end-message';
-                    message.textContent = 'Web sitemiz şimdi yayında!';
-                    message.style.fontSize = '1.5rem';
-                    message.style.color = 'var(--accent-color)';
-                    message.style.marginTop = '20px';
-                    countdownElement.parentNode.appendChild(message);
-                }
+                // You could add a message or redirect here
             }
         }
         
-        // Particles.js Configuration - Performans için optimize edildi
+        // Particles.js Configuration
         function initParticles() {
-            if (typeof particlesJS !== 'undefined') {
-                particlesJS('particles-js', {
-                    particles: {
-                        number: {
-                            value: 60, // Azaltıldı (80'den 60'a)
-                            density: {
-                                enable: true,
-                                value_area: 800
-                            }
-                        },
-                        color: {
-                            value: '#ffffff'
-                        },
-                        shape: {
-                            type: 'circle',
-                            stroke: {
-                                width: 0,
-                                color: '#000000'
-                            },
-                        },
-                        opacity: {
-                            value: 0.2,
-                            random: false,
-                            anim: {
-                                enable: false,
-                                speed: 1,
-                                opacity_min: 0.1,
-                                sync: false
-                            }
-                        },
-                        size: {
-                            value: 3,
-                            random: true,
-                            anim: {
-                                enable: false,
-                                speed: 40,
-                                size_min: 0.1,
-                                sync: false
-                            }
-                        },
-                        line_linked: {
+            particlesJS('particles-js', {
+                particles: {
+                    number: {
+                        value: 80,
+                        density: {
                             enable: true,
-                            distance: 150,
-                            color: '#ffffff',
-                            opacity: 0.15,
-                            width: 1
-                        },
-                        move: {
-                            enable: true,
-                            speed: 2,
-                            direction: 'none',
-                            random: false,
-                            straight: false,
-                            out_mode: 'out',
-                            bounce: false,
-                            attract: {
-                                enable: false,
-                                rotateX: 600,
-                                rotateY: 1200
-                            }
+                            value_area: 800
                         }
                     },
-                    interactivity: {
-                        detect_on: 'canvas',
-                        events: {
-                            onhover: {
-                                enable: true,
-                                mode: 'grab'
-                            },
-                            onclick: {
-                                enable: true,
-                                mode: 'push'
-                            },
-                            resize: true
+                    color: {
+                        value: '#ffffff'
+                    },
+                    shape: {
+                        type: 'circle',
+                        stroke: {
+                            width: 0,
+                            color: '#000000'
                         },
-                        modes: {
-                            grab: {
-                                distance: 140,
-                                line_linked: {
-                                    opacity: 0.4
-                                }
-                            },
-                            push: {
-                                particles_nb: 4
-                            }
+                    },
+                    opacity: {
+                        value: 0.2,
+                        random: false,
+                        anim: {
+                            enable: false,
+                            speed: 1,
+                            opacity_min: 0.1,
+                            sync: false
                         }
                     },
-                    retina_detect: true
-                });
-            } else {
-                console.warn('particles.js kütüphanesi yüklenemedi.');
-                
-                // Fallback - Font Awesome ikonları için fallback
-                const fallbackIcons = document.querySelectorAll('.skill-badge i');
-                fallbackIcons.forEach(icon => {
-                    if (icon.classList.contains('fa-check-circle')) {
-                        icon.innerHTML = '✓';
-                    } else if (icon.classList.contains('fa-shield-alt')) {
-                        icon.innerHTML = '🛡️';
-                    } else if (icon.classList.contains('fa-robot')) {
-                        icon.innerHTML = '🤖';
-                    } else if (icon.classList.contains('fa-code')) {
-                        icon.innerHTML = '&lt;/&gt;';
+                    size: {
+                        value: 3,
+                        random: true,
+                        anim: {
+                            enable: false,
+                            speed: 40,
+                            size_min: 0.1,
+                            sync: false
+                        }
+                    },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: '#ffffff',
+                        opacity: 0.15,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2,
+                        direction: 'none',
+                        random: false,
+                        straight: false,
+                        out_mode: 'out',
+                        bounce: false,
+                        attract: {
+                            enable: false,
+                            rotateX: 600,
+                            rotateY: 1200
+                        }
                     }
-                });
-            }
+                },
+                interactivity: {
+                    detect_on: 'canvas',
+                    events: {
+                        onhover: {
+                            enable: true,
+                            mode: 'grab'
+                        },
+                        onclick: {
+                            enable: true,
+                            mode: 'push'
+                        },
+                        resize: true
+                    },
+                    modes: {
+                        grab: {
+                            distance: 140,
+                            line_linked: {
+                                opacity: 0.4
+                            }
+                        },
+                        push: {
+                            particles_nb: 4
+                        }
+                    }
+                },
+                retina_detect: true
+            });
         }
-    </script>
-    
-    <!-- Service Worker için basit setup -->
-    <script>
-        // Service Worker kaydı
-        if ('serviceWorker' in navigator) {
-            // Service Worker kaydını ertelemek için önce tüm kaynakları yükle
-            if (document.readyState === 'complete') {
-                _registerSW();
-            } else {
-                window.addEventListener('load', _registerSW);
-            }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year
+            document.getElementById('current-year').textContent = new Date().getFullYear();
             
-            function _registerSW() {
-                // Şimdi değil, biraz bekle
-                setTimeout(function() {
-                    navigator.serviceWorker.register('sw.js', {scope: './'})
-                        .then(function(reg) {
-                            console.log('ServiceWorker kaydı başarılı:', reg.scope);
-                            
-                            // Sayfa yüklenmesini tamamlamak için yapay bir olay
-                            window.dispatchEvent(new Event('load'));
-                            document.dispatchEvent(new Event('readystatechange'));
-                        })
-                        .catch(function(err) {
-                            console.log('ServiceWorker kaydı başarısız:', err);
-                        });
-                }, 1000);
-            }
-        }
-    </script>
-    
-    <!-- Tarayıcı ilerleme çubuğunu tamamlamak için -->
-    <script>
-        window.addEventListener('load', function() {
-            // Sayfa tam yüklendiğinde ilerleme çubuğunu tamamlamak için
-            setTimeout(function() {
-                // Sahte bir olay tetikleyerek tarayıcıyı tam yüklenmeye zorla
-                window.dispatchEvent(new Event('pageshow'));
-                window.dispatchEvent(new Event('load'));
-                document.dispatchEvent(new Event('readystatechange'));
-                
-                // Çerçeveler ve sayfalar arası mesajlaşma
-                if (window.parent !== window) {
-                    window.parent.postMessage('loaded', '*');
-                }
-                
-                // Navigation Timing API kullanarak sayfa yükleme durumunu zorla
-                if (performance && performance.timing) {
-                    // Tüm API'leri tamamlanmış olarak işaretle
-                    performance.getEntriesByType('resource').forEach(function(resource) {
-                        // Resource yükleme işlemini tamamla
-                        if (resource.duration === 0) {
-                            Object.defineProperty(resource, 'duration', { value: 1 });
-                        }
-                    });
-                }
-                
-                // Tüm resimlerin yüklendiğinden emin ol
-                document.querySelectorAll('img').forEach(function(img) {
-                    if (!img.complete) {
-                        img.src = img.src;
-                    }
-                });
-                
-                // Yapay bir yükleme işlemi oluştur
-                fetch('data:text/plain;base64,SGVsbG8=')
-                    .then(response => response.text())
-                    .then(() => {
-                        console.log('Sayfa tam olarak yüklendi');
-                    });
-                
-                // CSS ile içerik görünürlüğünü değiştirerek tarayıcıyı "tam yüklendi" durumuna getir
-                document.body.style.visibility = 'hidden';
-                setTimeout(() => {
-                    document.body.style.visibility = 'visible';
-                }, 10);
-                
-            }, 1000);
+            // Initialize particles with dark theme
+            initParticles();
+            
+            // Start countdown
+            updateCountdown();
+            const countdownTimer = setInterval(updateCountdown, 1000);
         });
     </script>
 </body>

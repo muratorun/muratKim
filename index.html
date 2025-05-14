@@ -3,24 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Murat Kim | QA Engineer ve Siber Güvenlik Uzmanı</title>
+    <title>Murat Kim | Yakında</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #2c3e50;
+            --primary-color: #1e272e;
             --secondary-color: #3498db;
             --accent-color: #20c9c1;
-            --text-color: #333;
-            --text-light-color: #f5f5f5;
-            --bg-color: #f9f9f9;
-            --card-bg-color: #fff;
-            --border-radius: 8px;
-            --space-xs: 0.5rem;
-            --space-sm: 1rem;
-            --space-md: 1.5rem;
-            --space-lg: 2rem;
-            --space-xl: 3rem;
-            --transition-speed: 0.3s;
+            --bg-color: #121212;
+            --text-color: #f5f5f5;
+            --text-light: #f5f5f5;
+            --transition: all 0.3s ease;
         }
 
         * {
@@ -33,1143 +26,484 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.6;
-            transition: background-color var(--transition-speed), color var(--transition-speed);
-        }
-
-        a {
-            color: var(--secondary-color);
-            text-decoration: none;
-            transition: color var(--transition-speed);
-        }
-
-        a:hover {
-            color: #2980b9;
-        }
-
-        ul {
-            list-style-position: inside;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+            overflow-x: hidden;
         }
 
         .container {
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 var(--space-md);
+            padding: 0 20px;
         }
 
-        /* Skip link for accessibility */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--primary-color);
-            color: white;
-            padding: 8px;
-            z-index: 1000;
-            transition: top 0.3s;
-        }
-
-        .skip-link:focus {
-            top: 0;
-        }
-
-        /* HEADER STYLES */
-        .site-header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: var(--space-xl) 0;
+        /* Header Styles */
+        header {
             position: relative;
+            padding: 20px 0;
         }
 
-        .header-content {
+        /* Main Styles */
+        main {
+            flex: 1;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            gap: var(--space-md);
+            text-align: center;
+            padding: 40px 0;
         }
 
-        .header-info {
-            flex: 2;
+        .coming-soon {
+            margin-top: 40px;
+            margin-bottom: 60px;
         }
 
-        .header-info h1 {
+        .coming-soon h1 {
             font-size: 2.5rem;
-            margin-bottom: var(--space-xs);
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+
+        .coming-soon p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
         }
 
         .job-title {
-            font-size: 1.2rem;
-            margin-bottom: var(--space-sm);
-            color: var(--accent-color);
-        }
-
-        .header-summary {
-            opacity: 0.9;
-            line-height: 1.6;
-        }
-
-        .header-image {
-            flex: 1;
-            text-align: center;
-            max-width: 200px;
-        }
-
-        .profile-img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            border: 4px solid rgba(255, 255, 255, 0.2);
-            object-fit: cover;
-        }
-
-        /* NAVIGATION STYLES */
-        .site-nav {
-            background-color: var(--primary-color);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding: var(--space-sm) 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-list {
-            display: flex;
-            list-style: none;
-            gap: var(--space-md);
-        }
-
-        .nav-item a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all var(--transition-speed);
-            padding: var(--space-xs);
-        }
-
-        .nav-item a:hover {
-            color: var(--accent-color);
-        }
-
-        /* THEME TOGGLE STYLES */
-        .theme-toggle,
-        .theme-toggle-nav {
-            background: transparent;
-            border: none;
-            color: white;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: transform var(--transition-speed), opacity var(--transition-speed);
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-        }
-
-        .theme-toggle {
-            position: absolute;
-            top: var(--space-md);
-            right: var(--space-md);
-            background-color: rgba(0, 0, 0, 0.2);
-        }
-
-        .theme-toggle-nav {
-            background-color: rgba(0, 0, 0, 0.3);
-            display: none;
-        }
-
-        .theme-toggle:hover,
-        .theme-toggle-nav:hover {
-            transform: rotate(15deg);
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-
-        /* MAIN CONTENT STYLES */
-        .section {
-            padding: var(--space-xl) 0;
-        }
-
-        .section-title {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: var(--space-lg);
-            position: relative;
-            padding-bottom: var(--space-xs);
-            display: flex;
-            align-items: center;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 50px;
-            height: 3px;
-            background-color: var(--accent-color);
-        }
-
-        .section-title i {
-            margin-right: var(--space-xs);
-            color: var(--accent-color);
-        }
-
-        /* CARD STYLES */
-        .card {
-            background-color: var(--card-bg-color);
-            border-radius: var(--border-radius);
-            padding: var(--space-md);
-            margin-bottom: var(--space-md);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-title {
-            display: flex;
-            align-items: center;
-            font-size: 1.3rem;
-            color: var(--primary-color);
-            margin-bottom: var(--space-xs);
-        }
-
-        .card-title i {
-            margin-right: var(--space-xs);
-            color: var(--accent-color);
-        }
-
-        .card-subtitle {
+            font-size: 1.4rem;
             color: var(--secondary-color);
-            margin-bottom: var(--space-xs);
+            margin-bottom: 20px;
             font-weight: 500;
         }
 
-        .card-meta {
-            color: #777;
-            margin-bottom: var(--space-sm);
-            font-style: italic;
+        /* Countdown Styles */
+        .countdown {
             display: flex;
-            align-items: center;
-        }
-
-        .card-meta i {
-            margin-right: var(--space-xs);
-            color: var(--accent-color);
-            opacity: 0.7;
-        }
-
-        /* TAGS STYLES */
-        .tags {
-            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 50px;
             flex-wrap: wrap;
-            gap: var(--space-xs);
-            margin-top: var(--space-sm);
         }
 
-        .tag {
-            padding: 0.3rem 0.6rem;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .tag i {
-            margin-right: 0.3rem;
-        }
-
-        .tag-qa {
-            background-color: rgba(32, 201, 193, 0.1);
-            color: var(--accent-color);
-        }
-
-        .tag-security {
-            background-color: rgba(224, 51, 51, 0.1);
-            color: #e33333;
-        }
-
-        .tag-ai {
-            background-color: rgba(110, 100, 231, 0.1);
-            color: var(--secondary-color);
-        }
-
-        /* SKILLS STYLES */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: var(--space-md);
-        }
-
-        .skill-group {
-            background-color: var(--card-bg-color);
-            border-radius: var(--border-radius);
-            padding: var(--space-md);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-        }
-
-        .skill-group:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .skill-group-title {
-            display: flex;
-            align-items: center;
-            font-size: 1.2rem;
-            margin-bottom: var(--space-md);
-            padding-bottom: var(--space-xs);
-            border-bottom: 2px solid var(--accent-color);
-            color: var(--primary-color);
-        }
-
-        .skill-group-title i {
-            margin-right: var(--space-xs);
-            color: var(--accent-color);
-        }
-
-        .skill-group-qa .skill-group-title {
-            border-color: var(--accent-color);
-        }
-
-        .skill-group-security .skill-group-title {
-            border-color: #e33333;
-        }
-
-        .skill-group-ai .skill-group-title {
-            border-color: var(--secondary-color);
-        }
-
-        .skill-item {
-            margin-bottom: var(--space-sm);
-        }
-
-        .skill-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.3rem;
-        }
-
-        .skill-name {
-            font-weight: 500;
-        }
-
-        .skill-level {
-            font-size: 0.9rem;
-            color: var(--secondary-color);
-        }
-
-        .skill-bar {
-            height: 8px;
-            background-color: rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .skill-progress {
-            height: 100%;
-            width: 0;
-            transition: width 1.5s ease;
-        }
-
-        .skill-group-qa .skill-progress {
-            background: linear-gradient(90deg, var(--accent-color) 0%, #26DFD6 100%);
-        }
-
-        .skill-group-security .skill-progress {
-            background: linear-gradient(90deg, #e33333 0%, #FF5E5E 100%);
-        }
-
-        .skill-group-ai .skill-progress {
-            background: linear-gradient(90deg, var(--secondary-color) 0%, #8278FF 100%);
-        }
-
-        /* PROJECTS STYLES */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: var(--space-md);
-        }
-
-        .project-card {
-            background-color: var(--card-bg-color);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-            height: 100%;
-            border-top: 3px solid var(--accent-color);
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .project-content {
-            padding: var(--space-md);
-        }
-
-        .project-title {
-            font-size: 1.3rem;
-            display: flex;
-            align-items: center;
-            margin-bottom: var(--space-sm);
-            color: var(--primary-color);
-        }
-
-        .project-title i {
-            margin-right: var(--space-xs);
-            color: var(--accent-color);
-        }
-
-        .project-desc {
-            margin-bottom: var(--space-sm);
-            line-height: 1.6;
-        }
-
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            color: var(--secondary-color);
-            font-weight: 500;
-            margin-top: var(--space-sm);
-            transition: color var(--transition-speed);
-        }
-
-        .project-link i {
-            margin-left: var(--space-xs);
-            transition: transform var(--transition-speed);
-        }
-
-        .project-link:hover {
-            color: #2980b9;
-        }
-
-        .project-link:hover i {
-            transform: translateX(3px);
-        }
-
-        /* CONTACT STYLES */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: var(--space-md);
-        }
-
-        .contact-card {
-            background-color: var(--card-bg-color);
-            border-radius: var(--border-radius);
-            padding: var(--space-md);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-            display: flex;
-            align-items: center;
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-        }
-
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: rgba(32, 201, 193, 0.1);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-right: var(--space-md);
-            font-size: 1.3rem;
-            color: var(--accent-color);
-        }
-
-        .contact-info h3 {
-            margin-bottom: 0.3rem;
-            color: var(--primary-color);
-        }
-
-        /* FOOTER STYLES */
-        .footer {
+        .countdown-item {
+            width: 100px;
+            height: 100px;
             background-color: var(--primary-color);
             color: white;
-            padding: var(--space-lg) 0;
-            margin-top: var(--space-xl);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
         }
 
+        .countdown-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .countdown-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        /* Skills Preview Styles */
+        .skills-preview {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .skill-badge {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--accent-color);
+            padding: 8px 15px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: 1px solid rgba(32, 201, 193, 0.2);
+        }
+
+        .skill-badge.security {
+            color: #e33333;
+            border-color: rgba(227, 51, 51, 0.2);
+        }
+
+        .skill-badge.ai {
+            color: var(--secondary-color);
+            border-color: rgba(52, 152, 219, 0.2);
+        }
+
+        .skill-badge i {
+            margin-right: 8px;
+        }
+
+        .skill-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Social Links Styles */
         .social-links {
             display: flex;
             justify-content: center;
-            gap: var(--space-sm);
-            margin-bottom: var(--space-md);
+            gap: 15px;
+            margin-bottom: 30px;
+            margin-top: 40px;
         }
 
         .social-link {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: var(--primary-color);
+            color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            transition: all var(--transition-speed);
+            font-size: 1.2rem;
+            transition: var(--transition);
+            text-decoration: none;
         }
 
         .social-link:hover {
+            transform: translateY(-5px) rotate(5deg);
             background-color: var(--accent-color);
             color: white;
-            transform: translateY(-3px);
         }
 
-        /* DARK MODE STYLES */
-        body.dark-mode {
-            --bg-color: #121212;
-            --text-color: #f5f5f5;
-            --card-bg-color: #1e272e;
-            --primary-color: #1e272e;
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: var(--primary-color);
+            color: white;
         }
 
-        body.dark-mode .section-title,
-        body.dark-mode .card-title,
-        body.dark-mode .skill-group-title,
-        body.dark-mode .project-title,
-        body.dark-mode .contact-info h3 {
-            color: var(--text-light-color);
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
         }
 
-        body.dark-mode .card,
-        body.dark-mode .skill-group,
-        body.dark-mode .project-card,
-        body.dark-mode .contact-card {
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        body.dark-mode .skill-bar {
-            background-color: rgba(255, 255, 255, 0.1);
+        .animated {
+            animation: fadeInUp 0.5s ease forwards;
         }
 
-        /* RESPONSIVE STYLES */
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.4s;
+        }
+
+        /* Particles Canvas */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            top: 0;
+            left: 0;
+        }
+
+        /* Responsive Styles */
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column-reverse;
+            .coming-soon h1 {
+                font-size: 2rem;
             }
 
-            .header-info {
-                text-align: center;
+            .countdown {
+                gap: 10px;
             }
 
-            .section-title::after {
-                left: 50%;
-                transform: translateX(-50%);
+            .countdown-item {
+                width: 80px;
+                height: 80px;
             }
 
-            .nav-container {
+            .countdown-value {
+                font-size: 2rem;
+            }
+
+            .newsletter-form {
                 flex-direction: column;
-                gap: var(--space-sm);
             }
 
-            .nav-list {
-                flex-direction: column;
-                align-items: center;
-                gap: var(--space-xs);
-            }
-
-            .theme-toggle {
-                top: var(--space-sm);
-                right: var(--space-sm);
-            }
-
-            .card-title,
-            .card-subtitle,
-            .card-meta {
-                text-align: center;
-            }
-
-            .contact-card {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .contact-icon {
-                margin-right: 0;
-                margin-bottom: var(--space-sm);
-            }
-
-            .skills-grid,
-            .projects-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
+            .newsletter-button {
+                width: 100%;
             }
         }
 
         @media (max-width: 480px) {
-            :root {
-                --space-md: 1.25rem;
-                --space-lg: 1.5rem;
-                --space-xl: 2rem;
+            .coming-soon h1 {
+                font-size: 1.8rem;
             }
 
-            .section {
-                padding: var(--space-lg) 0;
+            .profile-img {
+                width: 120px;
+                height: 120px;
             }
 
-            .card, 
-            .skill-group, 
-            .project-card,
-            .contact-card {
-                padding: var(--space-sm);
+            .countdown-item {
+                width: 70px;
+                height: 70px;
+            }
+
+            .countdown-value {
+                font-size: 1.5rem;
+            }
+
+            .countdown-label {
+                font-size: 0.8rem;
             }
         }
     </style>
 </head>
-<body>
-    <!-- Skip link for accessibility -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+<body class="dark-mode">
+    <div id="particles-js"></div>
     
-    <!-- Header -->
-    <header class="site-header">
+    <header>
         <div class="container">
-            <button class="theme-toggle" id="theme-toggle-header" aria-label="Toggle dark mode">
-                <i class="fas fa-moon" aria-hidden="true"></i>
-            </button>
-            <div class="header-content">
-                <div class="header-info">
-                    <h1>Murat Kim</h1>
-                    <p class="job-title">QA Engineer | Cyber Security Specialist | AI Enthusiast</p>
-                    <p class="header-summary">Profesyonel yazılım test ve kalite güvence uzmanı olarak, güvenlikten taviz vermeden mükemmelliği hedefliyorum. Siber güvenlik ve yapay zeka alanlarında kendimi geliştirerek, teknolojiyle güvenli ve yenilikçi çözümler üretiyorum.</p>
-                </div>
-                <div class="header-image">
-                    <img src="/api/placeholder/160/160" alt="Murat Kim" class="profile-img">
-                </div>
-            </div>
+            <!-- Tema seçimi kaldırıldı -->
         </div>
     </header>
     
-    <!-- Navigation -->
-    <nav class="site-nav" aria-label="Main navigation">
-        <div class="container nav-container">
-            <ul class="nav-list">
-                <li class="nav-item"><a href="#about">Hakkımda</a></li>
-                <li class="nav-item"><a href="#experience">Deneyim</a></li>
-                <li class="nav-item"><a href="#education">Eğitim</a></li>
-                <li class="nav-item"><a href="#skills">Yetenekler</a></li>
-                <li class="nav-item"><a href="#projects">Projeler</a></li>
-                <li class="nav-item"><a href="#certificates">Sertifikalar</a></li>
-                <li class="nav-item"><a href="#contact">İletişim</a></li>
-            </ul>
-            <button class="theme-toggle-nav" id="theme-toggle-nav" aria-label="Toggle dark mode">
-                <i class="fas fa-moon" aria-hidden="true"></i>
-            </button>
+    <main>
+        <div class="container">
+            <div class="coming-soon">
+                <!-- Profil resmi kaldırıldı -->
+                
+                <h1 class="animated delay-1">Murat ÖRÜN</h1>
+                <p class="job-title animated delay-1">QA Engineer | Cyber Security Specialist | AI Enthusiast</p>
+                
+                <p class="animated delay-2">Kişisel web sitem çok yakında yayında olacak. Profesyonel CV'mi, projelerimi ve yeteneklerimi burada bulabileceksiniz. Az kaldı!</p>
+                
+                <div class="countdown animated delay-2">
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="days">00</div>
+                        <div class="countdown-label">Gün</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="hours">00</div>
+                        <div class="countdown-label">Saat</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="minutes">00</div>
+                        <div class="countdown-label">Dakika</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="seconds">00</div>
+                        <div class="countdown-label">Saniye</div>
+                    </div>
+                </div>
+                
+                <div class="skills-preview animated delay-3">
+                    <span class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i>Test Otomasyonu</span>
+                    <span class="skill-badge security"><i class="fas fa-shield-alt" aria-hidden="true"></i>Siber Güvenlik</span>
+                    <span class="skill-badge ai"><i class="fas fa-robot" aria-hidden="true"></i>Yapay Zeka</span>
+                    <span class="skill-badge"><i class="fas fa-code" aria-hidden="true"></i>CI/CD</span>
+                </div>
+                
+                 <!--  SOSYAL MEDYA ALANI
+                <div class="social-links animated delay-4">
+                    <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                    <a href="#" class="social-link" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                    <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                    <a href="#" class="social-link" aria-label="Stack Overflow"><i class="fab fa-stack-overflow" aria-hidden="true"></i></a>
+                    <a href="#" class="social-link" aria-label="Medium"><i class="fab fa-medium" aria-hidden="true"></i></a>
+                </div>
+                 -->
+            </div>
         </div>
-    </nav>
-    
-    <!-- Main Content -->
-    <main id="main-content">
-        <!-- About Section -->
-        <section id="about" class="section">
-            <div class="container">
-                <h2 class="section-title"><i class="fas fa-user-shield" aria-hidden="true"></i>Hakkımda</h2>
-                <div class="card">
-                    <p>Yazılım kalite güvencesine olan tutkumla birlikte, siber güvenlik ve yapay zeka alanlarındaki bilgi birikimimi sürekli geliştirmekteyim. 5+ yıllık QA Engineer deneyimimle, kritik uygulamaların güvenlik açıklarını tespit etmekte ve sorunları çözmekte uzmanlaştım. Müşteri odaklı yaklaşımım ve analitik düşünce yapım sayesinde, yazılım geliştirme süreçlerinin her aşamasında kaliteyi arttırmak için çalışıyorum.</p>
-                    <div class="tags">
-                        <span class="tag tag-qa"><i class="fas fa-check-circle" aria-hidden="true"></i>Test Otomasyonu</span>
-                        <span class="tag tag-security"><i class="fas fa-shield-alt" aria-hidden="true"></i>Penetrasyon Testleri</span>
-                        <span class="tag tag-ai"><i class="fas fa-robot" aria-hidden="true"></i>AI Destekli Test</span>
-                        <span class="tag tag-qa"><i class="fas fa-code" aria-hidden="true"></i>CI/CD Pipeline</span>
-                        <span class="tag tag-security"><i class="fas fa-lock" aria-hidden="true"></i>Güvenlik Testleri</span>
-                        <span class="tag tag-ai"><i class="fas fa-brain" aria-hidden="true"></i>Makine Öğrenmesi</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Experience Section -->
-        <section id="experience" class="section">
-            <div class="container">
-                <h2 class="section-title"><i class="fas fa-briefcase" aria-hidden="true"></i>İş Deneyimi</h2>
-                
-                <div class="card">
-                    <h3 class="card-title"><i class="fas fa-bug" aria-hidden="true"></i>Senior QA Engineer</h3>
-                    <h4 class="card-subtitle">Tech Solutions A.Ş.</h4>
-                    <p class="card-meta"><i class="far fa-calendar-alt" aria-hidden="true"></i>Ocak 2022 - Günümüz</p>
-                    <ul>
-                        <li>Finans sektörüne yönelik geliştirilmiş yazılım çözümlerinin kalite güvence süreçlerini yönetmek</li>
-                        <li>AI destekli test otomasyon süreçlerini kurmak ve geliştirmek</li>
-                        <li>OWASP Top 10 açıklarına karşı güvenlik testlerini gerçekleştirmek</li>
-                        <li>DevSecOps süreçlerine entegre olarak sürekli güvenlik testi sağlamak</li>
-                    </ul>
-                    <div class="tags">
-                        <span class="tag tag-qa"><i class="fas fa-check-circle" aria-hidden="true"></i>Selenium</span>
-                        <span class="tag tag-qa"><i class="fas fa-check-circle" aria-hidden="true"></i>Jenkins</span>
-                        <span class="tag tag-security"><i class="fas fa-shield-alt" aria-hidden="true"></i>OWASP ZAP</span>
-                        <span class="tag tag-ai"><i class="fas fa-robot" aria-hidden="true"></i>TensorFlow</span>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <h3 class="card-title"><i class="fas fa-bug" aria-hidden="true"></i>QA Engineer</h3>
-                    <h4 class="card-subtitle">Siber Güvenlik Sistemleri Ltd.</h4>
-                    <p class="card-meta"><i class="far fa-calendar-alt" aria-hidden="true"></i>Mart 2019 - Aralık 2021</p>
-                    <ul>
-                        <li>Güvenlik odaklı yazılım çözümlerinin test süreçlerini yürütmek</li>
-                        <li>Penetrasyon testleri ile olası güvenlik açıklarını tespit etmek</li>
-                        <li>Test otomasyon araçları ile CI/CD süreçlerini desteklemek</li>
-                        <li>Test stratejileri ve test planları oluşturmak</li>
-                    </ul>
-                    <div class="tags">
-                        <span class="tag tag-security"><i class="fas fa-shield-alt" aria-hidden="true"></i>Burp Suite</span>
-                        <span class="tag tag-qa"><i class="fas fa-check-circle" aria-hidden="true"></i>Cypress</span>
-                        <span class="tag tag-qa"><i class="fas fa-check-circle" aria-hidden="true"></i>GitLab CI</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Education Section -->
-        <section id="education" class="section">
-            <div class="container">
-                <h2 class="section-title"><i class="fas fa-graduation-cap" aria-hidden="true"></i>Eğitim</h2>
-                
-                <div class="card">
-                    <h3 class="card-title"><i class="fas fa-university" aria-hidden="true"></i>Yüksek Lisans, Siber Güvenlik</h3>
-                    <h4 class="card-subtitle">İstanbul Teknik Üniversitesi</h4>
-                    <p class="card-meta"><i class="far fa-calendar-alt" aria-hidden="true"></i>2020 - 2022</p>
-                    <p>Ağ güvenliği, kriptografi, güvenli yazılım geliştirme ve etik hacking konularında uzmanlaşma.</p>
-                    <div class="tags">
-                        <span class="tag tag-security"><i class="fas fa-shield-alt" aria-hidden="true"></i>Ağ Güvenliği</span>
-                        <span class="tag tag-security"><i class="fas fa-lock" aria-hidden="true"></i>Kriptografi</span>
-                        <span class="tag tag-security"><i class="fas fa-user-secret" aria-hidden="true"></i>Etik Hacking</span>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <h3 class="card-title"><i class="fas fa-university" aria-hidden="true"></i>Lisans, Bilgisayar Mühendisliği</h3>
-                    <h4 class="card-subtitle">Boğaziçi Üniversitesi</h4>
-                    <p class="card-meta"><i class="far fa-calendar-alt" aria-hidden="true"></i>2015 - 2019</p>
-                    <p>Yazılım geliştirme, veri yapıları, algoritmalar ve makine öğrenmesi temelleri üzerine eğitim.</p>
-                    <div class="tags">
-                        <span class="tag tag-qa"><i class="fas fa-code" aria-hidden="true"></i>Yazılım Geliştirme</span>
-                        <span class="tag tag-ai"><i class="fas fa-brain" aria-hidden="true"></i>Makine Öğrenmesi</span>
-                        <span class="tag tag-ai"><i class="fas fa-database" aria-hidden="true"></i>Veri Yapıları</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Skills Section -->
-        <section id="skills" class="section">
-            <div class="container">
-                <h2 class="section-title"><i class="fas fa-cogs" aria-hidden="true"></i>Yetenekler</h2>
-                
-                <div class="skills-grid">
-                    <div class="skill-group skill-group-qa">
-                        <h3 class="skill-group-title"><i class="fas fa-check-circle" aria-hidden="true"></i>QA & Test</h3>
-                        
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">Test Otomasyonu</span>
-                                <span class="skill-level">92%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="92%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">Selenium / Cypress</span>
-                                <span class="skill-level">88%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="88%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">CI/CD Testleri</span>
-                                <span class="skill-level">85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="85%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">API Testleri</span>
-                                <span class="skill-level">90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="90%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-group skill-group-security">
-                        <h3 class="skill-group-title"><i class="fas fa-shield-alt" aria-hidden="true"></i>Cyber Security</h3>
-                        
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">Penetrasyon Testleri</span>
-                                <span class="skill-level">85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="85%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">OWASP Araçları</span>
-                                <span class="skill-level">82%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="82%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">Güvenlik Açığı Analizi</span>
-                                <span class="skill-level">78%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="78%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">Ağ Güvenliği</span>
-                                <span class="skill-level">75%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="75%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-group skill-group-ai">
-                        <h3 class="skill-group-title"><i class="fas fa-robot" aria-hidden="true"></i>Yapay Zeka</h3>
-                        
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">ML Modelleri Test Etme</span>
-                                <span class="skill-level">80%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="80%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">Python & TensorFlow</span>
-                                <span class="skill-level">75%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="75%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">NLP Basics</span>
-                                <span class="skill-level">70%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="70%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">AI Destekli Otomasyon</span>
-                                <span class="skill-level">85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="85%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Projects Section -->
-        <section id="projects" class="section">
-            <div class="container">
-                <h2 class="section-title"><i class="fas fa-project-diagram" aria-hidden="true"></i>Projeler</h2>
-                
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-content">
-                            <h3 class="project-title"><i class="fas fa-shield-alt" aria-hidden="true"></i>SecureBank API Test Suite</h3>
-                            <p class="project-desc">Finans API'leri için kapsamlı güvenlik test paketi. OWASP standartlarına göre güvenlik açıklarını tespit eden otomatik test suite.</p>
-                            <div class="tags">
-                                <span class="tag tag-qa"><i class="fas fa-check-circle" aria-hidden="true"></i>Selenium</span>
-                                <span class="tag tag-security"><i class="fas fa-shield-alt" aria-hidden="true"></i>OWASP ZAP</span>
-                                <span class="tag tag-qa"><i class="fas fa-check-circle" aria-hidden="true"></i>Python</span>
-                            </div>
-                            <a href="#" class="project-link">Projeyi Görüntüle <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card">
-                        <div class="project-content">
-                            <h3 class="project-title"><i class="fas fa-robot" aria-hidden="true"></i>AI Test Optimizer</h3>
-                            <p class="project-desc">Makine öğrenmesi kullanarak test süreçlerini optimize eden ve test senaryoları üreten yapay zeka destekli test aracı.</p>
-                            <div class="tags">
-                                <span class="tag tag-ai"><i class="fas fa-brain" aria-hidden="true"></i>TensorFlow</span>
-                                <span class="tag tag-ai"><i class="fas fa-robot" aria-hidden="true"></i>Python</span>
-                                <span class="tag tag-qa"><i class="fas fa-check-circle" aria-hidden="true"></i>Test Otomasyonu</span>
-                            </div>
-                            <a href="#" class="project-link">Projeyi Görüntüle <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card">
-                        <div class="project-content">
-                            <h3 class="project-title"><i class="fas fa-bug" aria-hidden="true"></i>DevSecOps Pipeline</h3>
-                            <p class="project-desc">CI/CD süreçlerine entegre olarak çalışan, her commit sonrası güvenlik taraması yapan kapsamlı DevSecOps pipeline implementasyonu.</p>
-                            <div class="tags">
-                                <span class="tag tag-security"><i class="fas fa-shield-alt" aria-hidden="true"></i>DevSecOps</span>
-                                <span class="tag tag-qa"><i class="fas fa-code" aria-hidden="true"></i>Jenkins</span>
-                                <span class="tag tag-security"><i class="fas fa-lock" aria-hidden="true"></i>Docker</span>
-                            </div>
-                            <a href="#" class="project-link">Projeyi Görüntüle <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Certificates Section -->
-        <section id="certificates" class="section">
-            <div class="container">
-                <h2 class="section-title"><i class="fas fa-certificate" aria-hidden="true"></i>Sertifikalar</h2>
-                
-                <div class="card">
-                    <h3 class="card-title"><i class="fas fa-award" aria-hidden="true"></i>ISTQB Certified Tester Advanced Level</h3>
-                    <p class="card-meta"><i class="far fa-calendar-alt" aria-hidden="true"></i>2023</p>
-                    <p>İleri seviye test yönetimi ve test analizi konularında uluslararası sertifika.</p>
-                </div>
-                
-                <div class="card">
-                    <h3 class="card-title"><i class="fas fa-award" aria-hidden="true"></i>Certified Ethical Hacker (CEH)</h3>
-                    <p class="card-meta"><i class="far fa-calendar-alt" aria-hidden="true"></i>2022</p>
-                    <p>EC-Council tarafından verilen, etik hacking ve güvenlik test teknikleri konusunda uluslararası sertifika.</p>
-                </div>
-                
-                <div class="card">
-                    <h3 class="card-title"><i class="fas fa-award" aria-hidden="true"></i>AI & Machine Learning Professional</h3>
-                    <p class="card-meta"><i class="far fa-calendar-alt" aria-hidden="true"></i>2021</p>
-                    <p>Yapay zeka ve makine öğrenmesi temelleri üzerine kapsamlı eğitim ve sertifika.</p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Contact Section -->
-        <section id="contact" class="section">
-            <div class="container">
-                <h2 class="section-title"><i class="fas fa-envelope" aria-hidden="true"></i>İletişim</h2>
-                
-                <div class="contact-grid">
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope" aria-hidden="true"></i>
-                        </div>
-                        <div class="contact-info">
-                            <h3>E-posta</h3>
-                            <p>mail@murat.kim</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone" aria-hidden="true"></i>
-                        </div>
-                        <div class="contact-info">
-                            <h3>Telefon</h3>
-                            <p>+90 555 123 4567</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                        </div>
-                        <div class="contact-info">
-                            <h3>Konum</h3>
-                            <p>İstanbul, Türkiye</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
     
-    <!-- Footer -->
-    <footer class="footer">
+    <footer>
         <div class="container">
-            <div class="social-links">
-                <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-                <a href="#" class="social-link" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-                <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-                <a href="#" class="social-link" aria-label="Stack Overflow"><i class="fab fa-stack-overflow" aria-hidden="true"></i></a>
-                <a href="#" class="social-link" aria-label="Medium"><i class="fab fa-medium" aria-hidden="true"></i></a>
-            </div>
-            <p>&copy; <span id="current-year">2025</span> Murat Kim. Tüm hakları saklıdır.</p>
+            <p>&copy; <span id="current-year">2025</span> Murat ÖRÜN. Tüm hakları saklıdır.</p>
         </div>
     </footer>
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // DOM elementlerine erişim
-        const themeToggleHeader = document.getElementById('theme-toggle-header');
-        const themeToggleNav = document.getElementById('theme-toggle-nav');
-        const body = document.body;
-        const skillProgressBars = document.querySelectorAll('.skill-progress');
-        const currentYearElement = document.getElementById('current-year');
+        // Countdown Timer
+        function updateCountdown() {
+            // Set launch date to June 30, 2025
+            const launchDate = new Date("June 30, 2025 00:00:00").getTime();
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+            
+            // Time calculations
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Display results
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            
+            // If the countdown is over
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                document.getElementById('days').textContent = "00";
+                document.getElementById('hours').textContent = "00";
+                document.getElementById('minutes').textContent = "00";
+                document.getElementById('seconds').textContent = "00";
+                
+                // You could add a message or redirect here
+            }
+        }
         
-        // Skill barlarını doldur
-        function animateSkillBars() {
-            skillProgressBars.forEach(progressBar => {
-                // Reset progress bar width to 0
-                progressBar.style.width = '0';
-                
-                // Get the data-width attribute
-                const targetWidth = progressBar.getAttribute('data-width');
-                
-                // Use IntersectionObserver to animate when visible
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            // Add a small delay before animation starts
-                            setTimeout(() => {
-                                progressBar.style.width = targetWidth;
-                            }, 200);
-                            // Once animated, stop observing
-                            observer.unobserve(entry.target);
+        // Particles.js Configuration
+        function initParticles() {
+            particlesJS('particles-js', {
+                particles: {
+                    number: {
+                        value: 80,
+                        density: {
+                            enable: true,
+                            value_area: 800
                         }
-                    });
-                }, { threshold: 0.1 });
-                
-                // Start observing the progress bar
-                observer.observe(progressBar);
-            });
-        }
-        
-        // Tema değiştirme
-        function toggleTheme() {
-            body.classList.toggle('dark-mode');
-            updateThemeToggleIcon();
-            
-            // Save preference to localStorage
-            localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
-        }
-        
-        // Tema toggle iconunu güncelleme
-        function updateThemeToggleIcon() {
-            const isDarkMode = body.classList.contains('dark-mode');
-            
-            if (isDarkMode) {
-                themeToggleHeader.innerHTML = '<i class="fas fa-sun" aria-hidden="true"></i>';
-                themeToggleNav.innerHTML = '<i class="fas fa-sun" aria-hidden="true"></i>';
-            } else {
-                themeToggleHeader.innerHTML = '<i class="fas fa-moon" aria-hidden="true"></i>';
-                themeToggleNav.innerHTML = '<i class="fas fa-moon" aria-hidden="true"></i>';
-            }
-        }
-        
-        // Sayfa kayarken navbar'daki tema butonunu göster/gizle
-        function handleScroll() {
-            if (window.scrollY > 100) {
-                themeToggleHeader.style.opacity = '0';
-                themeToggleHeader.style.visibility = 'hidden';
-                themeToggleNav.style.display = 'flex';
-            } else {
-                themeToggleHeader.style.opacity = '1';
-                themeToggleHeader.style.visibility = 'visible';
-                themeToggleNav.style.display = 'none';
-            }
-        }
-        
-        // Smooth scroll for navigation links
-        function setupSmoothScrolling() {
-            document.querySelectorAll('.nav-item a').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    if (targetElement) {
-                        // Prefer reduced motion if user has set that preference
-                        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-                        
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 70, // Offset for navbar height
-                            behavior: prefersReducedMotion ? 'auto' : 'smooth'
-                        });
+                    },
+                    color: {
+                        value: '#ffffff'
+                    },
+                    shape: {
+                        type: 'circle',
+                        stroke: {
+                            width: 0,
+                            color: '#000000'
+                        },
+                    },
+                    opacity: {
+                        value: 0.2,
+                        random: false,
+                        anim: {
+                            enable: false,
+                            speed: 1,
+                            opacity_min: 0.1,
+                            sync: false
+                        }
+                    },
+                    size: {
+                        value: 3,
+                        random: true,
+                        anim: {
+                            enable: false,
+                            speed: 40,
+                            size_min: 0.1,
+                            sync: false
+                        }
+                    },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: '#ffffff',
+                        opacity: 0.15,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2,
+                        direction: 'none',
+                        random: false,
+                        straight: false,
+                        out_mode: 'out',
+                        bounce: false,
+                        attract: {
+                            enable: false,
+                            rotateX: 600,
+                            rotateY: 1200
+                        }
                     }
-                });
+                },
+                interactivity: {
+                    detect_on: 'canvas',
+                    events: {
+                        onhover: {
+                            enable: true,
+                            mode: 'grab'
+                        },
+                        onclick: {
+                            enable: true,
+                            mode: 'push'
+                        },
+                        resize: true
+                    },
+                    modes: {
+                        grab: {
+                            distance: 140,
+                            line_linked: {
+                                opacity: 0.4
+                            }
+                        },
+                        push: {
+                            particles_nb: 4
+                        }
+                    }
+                },
+                retina_detect: true
             });
         }
         
         // Initialize
-        function init() {
+        document.addEventListener('DOMContentLoaded', function() {
             // Set current year
-            currentYearElement.textContent = new Date().getFullYear();
+            document.getElementById('current-year').textContent = new Date().getFullYear();
             
-            // Add event listeners
-            themeToggleHeader.addEventListener('click', toggleTheme);
-            themeToggleNav.addEventListener('click', toggleTheme);
-            window.addEventListener('scroll', handleScroll);
+            // Initialize particles with dark theme
+            initParticles();
             
-            // Check for saved theme preference
-            const savedDarkMode = localStorage.getItem('darkMode') === 'true';
-            if (savedDarkMode) {
-                body.classList.add('dark-mode');
-                updateThemeToggleIcon();
-            }
-            
-            // Check system preference if no saved preference
-            if (localStorage.getItem('darkMode') === null) {
-                const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                if (prefersDarkMode) {
-                    body.classList.add('dark-mode');
-                    updateThemeToggleIcon();
-                }
-            }
-            
-            // Setup smooth scrolling for navigation
-            setupSmoothScrolling();
-            
-            // Animate skill bars
-            animateSkillBars();
-            
-            // Initial call to handleScroll
-            handleScroll();
-        }
-        
-        // When DOM is fully loaded
-        document.addEventListener('DOMContentLoaded', init);
+            // Start countdown
+            updateCountdown();
+            const countdownTimer = setInterval(updateCountdown, 1000);
+        });
     </script>
 </body>
 </html>

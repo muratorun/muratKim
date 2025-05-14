@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Arka plan -->
+  <rect width="512" height="512" fill="#121212" rx="60"/>
+  
+  <!-- "M" harfi stilize edilmiş (büyük ekranlar için) -->
+  <path d="M128 128 L128 384 L192 384 L192 224 L256 320 L320 224 L320 384 L384 384 L384 128 L320 128 L256 224 L192 128 Z" fill="#20c9c1"/>
+  
+  <!-- Accent çizgisi -->
+  <rect x="128" y="416" width="256" height="32" fill="#3498db" rx="16"/>
+</svg>

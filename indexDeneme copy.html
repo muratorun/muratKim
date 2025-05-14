@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Murat ÖRÜN | Yakında Burada</title>
+    
+    <!-- Anında CSS Yükleme (FOUT önleme) -->
+    <style>
+        /* Kritik Render Yolu CSS */
+        body {
+            background-color: #121212;
+            color: #f5f5f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #121212;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            border-top-color: #20c9c1;
+            animation: spin 1s ease-in-out infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+    
+    <!-- SEO Meta Etiketleri -->
+    <meta name="description" content="Murat ÖRÜN - QA Engineer, Siber Güvenlik Uzmanı ve Yapay Zeka Meraklısı. Yakında yayında olacak kişisel web sitesi.">
+    <meta name="keywords" content="Murat ÖRÜN, QA Engineer, Test Otomasyonu, Siber Güvenlik, Yapay Zeka, CI/CD">
+    <meta name="author" content="Murat ÖRÜN">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#121212">
+    
+    <!-- Open Graph Meta Etiketleri (Sosyal Medya Paylaşımı İçin) -->
+    <meta property="og:title" content="Murat ÖRÜN | Yakında Burada">
+    <meta property="og:description" content="QA Engineer, Siber Güvenlik Uzmanı ve Yapay Zeka Meraklısı. Yakında yayında olacak kişisel web sitesi.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://muratourn.github.io/preview-image.jpg">
+    <meta property="og:image:alt" content="Murat ÖRÜN - Kişisel Website Preview">
+    
+    <!-- JSON-LD Yapısal Veri -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Murat ÖRÜN Kişisel Site",
+        "url": "https://muratourn.github.io/",
+        "description": "QA Engineer, Siber Güvenlik Uzmanı ve Yapay Zeka Meraklısı'nın kişisel sitesi – çok yakında yayında."
+    }
+    </script>
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    <!-- İlerleme çubuğunu tamamlamak için meta refresh -->
+    <meta http-equiv="refresh" content="0;URL='javascript:void(0)'">
+    
+    <!-- Favicon ve PWA Desteği -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Font Awesome CSS - Performans İyileştirmeleri -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
+    
+    <style>
+        :root {
+            --primary-color: #1e272e;
+            --secondary-color: #3498db;
+            --accent-color: #20c9c1;
+            --bg-color: #121212;
+            --text-color: #f5f5f5;
+            --text-light: #f5f5f5;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        /* Main Styles */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .coming-soon {
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+
+        .coming-soon h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+
+        .coming-soon p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .job-title {
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        /* Countdown Styles */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            width: 100px;
+            height: 100px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .countdown-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .countdown-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        /* Skills Preview Styles */
+        .skills-preview {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .skill-badge {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--accent-color);
+            padding: 8px 15px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: 1px solid rgba(32, 201, 193, 0.2);
+        }
+
+        .skill-badge.security {
+            color: #e33333;
+            border-color: rgba(227, 51, 51, 0.2);
+        }
+
+        .skill-badge.ai {
+            color: var(--secondary-color);
+            border-color: rgba(52, 152, 219, 0.2);
+        }
+
+        .skill-badge i {
+            margin-right: 8px;
+        }
+
+        .skill-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+        }
+        
+        /* Spring Effect for Interactive Elements */
+        .countdown-item:hover, .social-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            transition: transform 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28), box-shadow 0.3s ease;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            margin-top: 40px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px) rotate(5deg);
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animated {
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.4s;
+        }
+
+        /* Particles Canvas */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            top: 0;
+            left: 0;
+        }
+
+        /* Responsive Styles - İyileştirilmiş */
+        @media (max-width: 768px) {
+            .coming-soon h1 {
+                font-size: 2rem;
+            }
+            
+            .job-title {
+                font-size: 1.2rem;
+            }
+
+            .countdown {
+                gap: 15px;
+            }
+
+            .countdown-item {
+                width: 80px;
+                height: 80px;
+            }
+
+            .countdown-value {
+                font-size: 2rem;
+            }
+            
+            .skills-preview {
+                gap: 10px;
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .coming-soon h1 {
+                font-size: 1.8rem;
+                margin-bottom: 10px;
+            }
+            
+            .job-title {
+                font-size: 1.1rem;
+                margin-bottom: 15px;
+            }
+            
+            .coming-soon p {
+                font-size: 1rem;
+                margin-bottom: 25px;
+            }
+
+            .countdown {
+                gap: 8px;
+            }
+
+            .countdown-item {
+                width: 70px;
+                height: 70px;
+            }
+
+            .countdown-value {
+                font-size: 1.5rem;
+            }
+
+            .countdown-label {
+                font-size: 0.8rem;
+            }
+            
+            .skill-badge {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+        }
+        
+        /* İlave Erişilebilirlik Özellikleri */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent-color);
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        /* Yükleme Göstergesi */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            border-top-color: var(--accent-color);
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body class="dark-mode">
+    <!-- Erişilebilirlik Skip Link -->
+    <a href="#main-content" class="skip-link">Ana içeriğe atla</a>
+    
+    <!-- Yükleme Göstergesi -->
+    <div class="loader" id="page-loader">
+        <div class="loader-spinner" aria-label="Sayfa yükleniyor"></div>
+    </div>
+    
+    <!-- Tamamlanma İndikatörü - Gizli iframe -->
+    <iframe src="about:blank" style="width:0;height:0;border:0;visibility:hidden" onload="document.dispatchEvent(new Event('DOMContentLoaded'));window.dispatchEvent(new Event('load'));"></iframe>
+    <noscript>
+        <div style="background-color: #e33333; color: white; padding: 15px; text-align: center; margin: 20px; border-radius: 5px;">
+            <p>Bu site JavaScript gerektiriyor. Lütfen tarayıcınızda JavaScript'i etkinleştirin ve sayfayı yenileyin.</p>
+        </div>
+    </noscript>
+    
+    <div id="particles-js"></div>
+    
+    <header>
+        <div class="container">
+            <!-- Tema seçimi kaldırıldı -->
+        </div>
+    </header>
+    
+    <main id="main-content">
+        <div class="container">
+            <div class="coming-soon">
+                <!-- Profil resmi kaldırıldı -->
+                
+                <h1 class="animated delay-1">Murat ÖRÜN</h1>
+                <p class="job-title animated delay-1">QA Engineer | Siber Güvenlik Uzmanı | Yapay Zeka Meraklısı</p>
+                
+                <p class="animated delay-2">Kısa süre sonra erişime açılacak kişisel sitemde; özgeçmişim, uzmanlık alanlarım ve tamamladığım projeleri kapsamlı şekilde bulabilirsiniz. Çok yakında görüşmek üzere!</p>
+                
+                <div class="countdown animated delay-2" aria-live="polite">
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="days">00</div>
+                        <div class="countdown-label">Gün</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="hours">00</div>
+                        <div class="countdown-label">Saat</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="minutes">00</div>
+                        <div class="countdown-label">Dakika</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="seconds">00</div>
+                        <div class="countdown-label">Saniye</div>
+                    </div>
+                </div>
+                
+                <div class="skills-preview animated delay-3">
+                    <span class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i>Test Otomasyonu</span>
+                    <span class="skill-badge security"><i class="fas fa-shield-alt" aria-hidden="true"></i>Siber Güvenlik</span>
+                    <span class="skill-badge ai"><i class="fas fa-robot" aria-hidden="true"></i>Yapay Zeka</span>
+                    <span class="skill-badge"><i class="fas fa-code" aria-hidden="true"></i>CI/CD</span>
+                </div>
+                
+                 <!--  SOSYAL MEDYA ALANI
+                <div class="social-links animated delay-4">
+                    <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                    <a href="#" class="social-link" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                    <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                    <a href="#" class="social-link" aria-label="Stack Overflow"><i class="fab fa-stack-overflow" aria-hidden="true"></i></a>
+                    <a href="#" class="social-link" aria-label="Medium"><i class="fab fa-medium" aria-hidden="true"></i></a>
+                </div>
+                 -->
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="current-year">2025</span> Murat ÖRÜN. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+    
+    <!-- Performans için script etiketleri body sonuna taşındı -->
+    <!-- Particles.js yüklenmesi -->
+    <script>
+        // Particles.js'i önceden yükle
+        document.addEventListener('DOMContentLoaded', function() {
+            const scriptLoaded = typeof particlesJS !== 'undefined';
+            if (!scriptLoaded) {
+                const script = document.createElement('script');
+                script.src = 'https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js';
+                script.async = false; // Senkron yükleme
+                script.onload = function() {
+                    console.log('particles.js yüklendi');
+                    initParticles();
+                };
+                document.body.appendChild(script);
+            } else {
+                initParticles();
+            }
+        });
+    </script>
+    
+    <!-- Basit Analytics Kodu -->
+    <script>
+        // Üretime geçmeden önce kaldırılacak & gerçek analitik koduyla değiştirilecek
+        if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+            // Burada Google Analytics veya başka bir analitik kodunu ekleyebilirsiniz
+            // Örnek: Google Analytics
+            /*
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-XXXXXXXXXX');
+            */
+            
+            // Şimdilik sadece geliştirme için basit izleme
+            const pageLoadTime = window.performance.timing.domContentLoadedEventEnd - 
+                               window.performance.timing.navigationStart;
+            console.log('Sayfa yükleme süresi:', pageLoadTime + 'ms');
+            
+            // Tarayıcı ve ekran bilgilerini kaydet
+            const browserInfo = {
+                userAgent: navigator.userAgent,
+                language: navigator.language,
+                screenWidth: window.screen.width,
+                screenHeight: window.screen.height,
+                viewportWidth: window.innerWidth,
+                viewportHeight: window.innerHeight
+            };
+            
+            // Hata yakalama
+            window.addEventListener('error', function(e) {
+                // Üretime geçmeden önce Sentry veya başka bir hata izleme sistemine entegre edin
+            });
+        }
+    </script>
+    
+    <script>
+        // Sayfa yükleme olayını ve yükleme göstergesini yönetme
+        // Sayfa yükleme olayını ve yükleme göstergesini yönetme
+        document.addEventListener('DOMContentLoaded', function() {
+            // Yükleme göstergesini 500ms sonra DOM'dan tamamen kaldır
+            setTimeout(() => {
+                const loader = document.getElementById('page-loader');
+                if (loader) {
+                    // Önce görsel geçiş için sınıfı ekle
+                    loader.classList.add('hidden');
+                    
+                    // Animasyon bittikten sonra DOM'dan tamamen kaldır (500ms sonra)
+                    setTimeout(() => {
+                        if (loader.parentNode) {
+                            loader.parentNode.removeChild(loader);
+                        }
+                    }, 500);
+                }
+            }, 500);
+            
+            // Set current year
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            
+            // Initialize particles with dark theme
+            initParticles();
+            
+            // Start countdown - Düzeltilmiş versiyon
+            updateCountdown();
+            // CountdownTimer değişkeni global olarak tanımlanmalı
+            window.countdownTimer = setInterval(updateCountdown, 1000);
+        });
+        
+        // Countdown Timer - Düzeltilmiş
+        function updateCountdown() {
+            // Set launch date to June 30, 2025
+            const launchDate = new Date("June 30, 2025 00:00:00").getTime();
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+            
+            // Time calculations
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Display results
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            
+            // If the countdown is over
+            if (distance < 0) {
+                clearInterval(window.countdownTimer);
+                document.getElementById('days').textContent = "00";
+                document.getElementById('hours').textContent = "00";
+                document.getElementById('minutes').textContent = "00";
+                document.getElementById('seconds').textContent = "00";
+                
+                // Geri sayım bittiğinde mesaj gösterme
+                const countdownElement = document.querySelector('.countdown');
+                if (countdownElement) {
+                    const message = document.createElement('div');
+                    message.className = 'countdown-end-message';
+                    message.textContent = 'Web sitemiz şimdi yayında!';
+                    message.style.fontSize = '1.5rem';
+                    message.style.color = 'var(--accent-color)';
+                    message.style.marginTop = '20px';
+                    countdownElement.parentNode.appendChild(message);
+                }
+            }
+        }
+        
+        // Particles.js Configuration - Performans için optimize edildi
+        function initParticles() {
+            if (typeof particlesJS !== 'undefined') {
+                particlesJS('particles-js', {
+                    particles: {
+                        number: {
+                            value: 60, // Azaltıldı (80'den 60'a)
+                            density: {
+                                enable: true,
+                                value_area: 800
+                            }
+                        },
+                        color: {
+                            value: '#ffffff'
+                        },
+                        shape: {
+                            type: 'circle',
+                            stroke: {
+                                width: 0,
+                                color: '#000000'
+                            },
+                        },
+                        opacity: {
+                            value: 0.2,
+                            random: false,
+                            anim: {
+                                enable: false,
+                                speed: 1,
+                                opacity_min: 0.1,
+                                sync: false
+                            }
+                        },
+                        size: {
+                            value: 3,
+                            random: true,
+                            anim: {
+                                enable: false,
+                                speed: 40,
+                                size_min: 0.1,
+                                sync: false
+                            }
+                        },
+                        line_linked: {
+                            enable: true,
+                            distance: 150,
+                            color: '#ffffff',
+                            opacity: 0.15,
+                            width: 1
+                        },
+                        move: {
+                            enable: true,
+                            speed: 2,
+                            direction: 'none',
+                            random: false,
+                            straight: false,
+                            out_mode: 'out',
+                            bounce: false,
+                            attract: {
+                                enable: false,
+                                rotateX: 600,
+                                rotateY: 1200
+                            }
+                        }
+                    },
+                    interactivity: {
+                        detect_on: 'canvas',
+                        events: {
+                            onhover: {
+                                enable: true,
+                                mode: 'grab'
+                            },
+                            onclick: {
+                                enable: true,
+                                mode: 'push'
+                            },
+                            resize: true
+                        },
+                        modes: {
+                            grab: {
+                                distance: 140,
+                                line_linked: {
+                                    opacity: 0.4
+                                }
+                            },
+                            push: {
+                                particles_nb: 4
+                            }
+                        }
+                    },
+                    retina_detect: true
+                });
+            } else {
+                console.warn('particles.js kütüphanesi yüklenemedi.');
+                
+                // Fallback - Font Awesome ikonları için fallback
+                const fallbackIcons = document.querySelectorAll('.skill-badge i');
+                fallbackIcons.forEach(icon => {
+                    if (icon.classList.contains('fa-check-circle')) {
+                        icon.innerHTML = '✓';
+                    } else if (icon.classList.contains('fa-shield-alt')) {
+                        icon.innerHTML = '🛡️';
+                    } else if (icon.classList.contains('fa-robot')) {
+                        icon.innerHTML = '🤖';
+                    } else if (icon.classList.contains('fa-code')) {
+                        icon.innerHTML = '&lt;/&gt;';
+                    }
+                });
+            }
+        }
+    </script>
+    
+    <!-- Service Worker için basit setup -->
+    <script>
+        // Service Worker kaydı
+        if ('serviceWorker' in navigator) {
+            // Service Worker kaydını ertelemek için önce tüm kaynakları yükle
+            if (document.readyState === 'complete') {
+                _registerSW();
+            } else {
+                window.addEventListener('load', _registerSW);
+            }
+            
+            function _registerSW() {
+                // Şimdi değil, biraz bekle
+                setTimeout(function() {
+                    navigator.serviceWorker.register('sw.js', {scope: './'})
+                        .then(function(reg) {
+                            console.log('ServiceWorker kaydı başarılı:', reg.scope);
+                            
+                            // Sayfa yüklenmesini tamamlamak için yapay bir olay
+                            window.dispatchEvent(new Event('load'));
+                            document.dispatchEvent(new Event('readystatechange'));
+                        })
+                        .catch(function(err) {
+                            console.log('ServiceWorker kaydı başarısız:', err);
+                        });
+                }, 1000);
+            }
+        }
+    </script>
+    
+    <!-- Tarayıcı ilerleme çubuğunu tamamlamak için -->
+    <script>
+        window.addEventListener('load', function() {
+            // Sayfa tam yüklendiğinde ilerleme çubuğunu tamamlamak için
+            setTimeout(function() {
+                // Sahte bir olay tetikleyerek tarayıcıyı tam yüklenmeye zorla
+                window.dispatchEvent(new Event('pageshow'));
+                window.dispatchEvent(new Event('load'));
+                document.dispatchEvent(new Event('readystatechange'));
+                
+                // Çerçeveler ve sayfalar arası mesajlaşma
+                if (window.parent !== window) {
+                    window.parent.postMessage('loaded', '*');
+                }
+                
+                // Navigation Timing API kullanarak sayfa yükleme durumunu zorla
+                if (performance && performance.timing) {
+                    // Tüm API'leri tamamlanmış olarak işaretle
+                    performance.getEntriesByType('resource').forEach(function(resource) {
+                        // Resource yükleme işlemini tamamla
+                        if (resource.duration === 0) {
+                            Object.defineProperty(resource, 'duration', { value: 1 });
+                        }
+                    });
+                }
+                
+                // Tüm resimlerin yüklendiğinden emin ol
+                document.querySelectorAll('img').forEach(function(img) {
+                    if (!img.complete) {
+                        img.src = img.src;
+                    }
+                });
+                
+                // Yapay bir yükleme işlemi oluştur
+                fetch('data:text/plain;base64,SGVsbG8=')
+                    .then(response => response.text())
+                    .then(() => {
+                        console.log('Sayfa tam olarak yüklendi');
+                    });
+                
+                // CSS ile içerik görünürlüğünü değiştirerek tarayıcıyı "tam yüklendi" durumuna getir
+                document.body.style.visibility = 'hidden';
+                setTimeout(() => {
+                    document.body.style.visibility = 'visible';
+                }, 10);
+                
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

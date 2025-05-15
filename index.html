@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Murat ÖRÜN | Yakında Burada</title>
-    
+
+    <!-- Favicon tanımlamaları -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- Farklı cihazlar için favicon desteği -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
     <!-- SEO Meta -->
-    <meta name="description" content="Murat ÖRÜN - QA Engineer, Siber Güvenlik Uzmanı ve Yapay Zeka Meraklısı. Yakında yayında olacak kişisel web sitesi.">
+    <meta name="description"
+        content="Murat ÖRÜN - QA Engineer, Siber Güvenlik Uzmanı ve Yapay Zeka Meraklısı. Yakında yayında olacak kişisel web sitesi.">
     <meta name="author" content="Murat ÖRÜN">
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -219,6 +230,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -308,25 +320,27 @@
         }
     </style>
 </head>
+
 <body class="dark-mode">
     <div id="particles-js"></div>
-    
+
     <header>
         <div class="container">
             <!-- Tema seçimi kaldırıldı -->
         </div>
     </header>
-    
+
     <main>
         <div class="container">
             <div class="coming-soon">
                 <!-- Profil resmi kaldırıldı -->
-                
+
                 <h1 class="animated delay-1">Murat ÖRÜN</h1>
                 <p class="job-title animated delay-1">QA Engineer | Siber Güvenlik Uzmanı | Yapay Zeka Meraklısı</p>
-                
-                <p class="animated delay-2">Kısa süre sonra erişime açılacak kişisel sitemde; özgeçmişim, uzmanlık alanlarım ve tamamladığım projeleri kapsamlı şekilde bulabilirsiniz. Çok yakında görüşmek üzere!</p>
-                
+
+                <p class="animated delay-2">Kısa süre sonra erişime açılacak kişisel sitemde; özgeçmişim, uzmanlık
+                    alanlarım ve tamamladığım projeleri kapsamlı şekilde bulabilirsiniz. Çok yakında görüşmek üzere!</p>
+
                 <div class="countdown animated delay-2">
                     <div class="countdown-item">
                         <div class="countdown-value" id="days">00</div>
@@ -345,15 +359,17 @@
                         <div class="countdown-label">Saniye</div>
                     </div>
                 </div>
-                
+
                 <div class="skills-preview animated delay-3">
-                    <span class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i>Test Otomasyonu</span>
-                    <span class="skill-badge security"><i class="fas fa-shield-alt" aria-hidden="true"></i>Siber Güvenlik</span>
+                    <span class="skill-badge"><i class="fas fa-check-circle" aria-hidden="true"></i>Test
+                        Otomasyonu</span>
+                    <span class="skill-badge security"><i class="fas fa-shield-alt" aria-hidden="true"></i>Siber
+                        Güvenlik</span>
                     <span class="skill-badge ai"><i class="fas fa-robot" aria-hidden="true"></i>Yapay Zeka</span>
                     <span class="skill-badge"><i class="fas fa-code" aria-hidden="true"></i>CI/CD</span>
                 </div>
-                
-                 <!--  SOSYAL MEDYA ALANI
+
+                <!--  SOSYAL MEDYA ALANI
                 <div class="social-links animated delay-4">
                     <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
                     <a href="#" class="social-link" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
@@ -365,13 +381,13 @@
             </div>
         </div>
     </main>
-    
+
     <footer>
         <div class="container">
             <p>&copy; <span id="current-year">2025</span> Murat ÖRÜN. Tüm hakları saklıdır.</p>
         </div>
     </footer>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
     <script>
         // Countdown Timer
@@ -380,19 +396,19 @@
             const launchDate = new Date("June 30, 2025 00:00:00").getTime();
             const now = new Date().getTime();
             const distance = launchDate - now;
-            
+
             // Time calculations
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            
+
             // Display results
             document.getElementById('days').textContent = days.toString().padStart(2, '0');
             document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
             document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
             document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-            
+
             // If the countdown is over
             if (distance < 0) {
                 clearInterval(countdownTimer);
@@ -400,7 +416,7 @@
                 document.getElementById('hours').textContent = "00";
                 document.getElementById('minutes').textContent = "00";
                 document.getElementById('seconds').textContent = "00";
-                
+
                 // Geri sayım bittiğinde mesaj göster
                 const countdownElement = document.querySelector('.countdown');
                 if (countdownElement) {
@@ -413,7 +429,7 @@
                 }
             }
         }
-        
+
         // Particles.js Configuration
         function initParticles() {
             particlesJS('particles-js', {
@@ -505,19 +521,28 @@
                 retina_detect: true
             });
         }
-        
+
         // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Set current year
             document.getElementById('current-year').textContent = new Date().getFullYear();
-            
+
             // Initialize particles with dark theme
             initParticles();
-            
+
             // Start countdown
             updateCountdown();
             const countdownTimer = setInterval(updateCountdown, 1000);
+
+            // Favicon yoklama ve yükleme hatası yakalama
+            const favicon = document.querySelector('link[rel="icon"]');
+            if (favicon) {
+                favicon.onerror = function () {
+                    console.error('Favicon yüklenemedi!');
+                };
+            }
         });
     </script>
 </body>
+
 </html>

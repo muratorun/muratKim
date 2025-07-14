@@ -2,10 +2,10 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://muratorun.github.io/muratKim/sitemap.xml
+Sitemap: https://murat.kim/sitemap.xml
 
 # Crawl delay (optional)
 Crawl-delay: 1
 
 # Host directive
-Host: https://muratorun.github.io
+Host: https://murat.kim

@@ -3,42 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Murat ÖRÜN | Test Mühendisi ve RPA Uzmanı</title>
+    <title>Murat ÖRÜN | QA Engineer ve Siber Güvenlik Uzmanı</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #0f172a;
-            --primary-light: #1e293b;
-            --secondary-color: #3b82f6;
-            --secondary-light: #60a5fa;
-            --accent-color: #10b981;
-            --accent-light: #34d399;
-            --text-color: #1e293b;
-            --text-light-color: #f8fafc;
-            --text-muted: #64748b;
+            --primary-color: #1a252f;
+            --secondary-color: #0066cc;
+            --accent-color: #00b894;
+            --text-color: #2d3748;
+            --text-light-color: #f7fafc;
             --bg-color: #f8fafc;
-            --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
             --card-bg-color: #ffffff;
-            --card-bg-hover: #fefefe;
-            --border-radius: 16px;
-            --border-radius-sm: 8px;
-            --border-radius-lg: 24px;
+            --border-radius: 12px;
             --space-xs: 0.5rem;
             --space-sm: 1rem;
             --space-md: 1.5rem;
             --space-lg: 2rem;
             --space-xl: 3rem;
-            --space-2xl: 4rem;
-            --transition-speed: 0.4s;
-            --transition-curve: cubic-bezier(0.4, 0, 0.2, 1);
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
-            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.08), 0 4px 6px rgba(0, 0, 0, 0.05);
-            --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1), 0 8px 10px rgba(0, 0, 0, 0.06);
-            --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.15), 0 10px 20px rgba(0, 0, 0, 0.1);
-            --glow-primary: 0 0 20px rgba(59, 130, 246, 0.3);
-            --glow-accent: 0 0 20px rgba(16, 185, 129, 0.3);
-            --glow-security: 0 0 20px rgba(239, 68, 68, 0.3);
+            --transition-speed: 0.3s;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1), 0 4px 10px rgba(0, 0, 0, 0.06);
+            --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.06);
         }
 
         * {
@@ -49,29 +35,12 @@
         }
 
         body {
-            background: var(--bg-gradient);
+            background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.7;
             font-size: 16px;
-            transition: all var(--transition-speed) var(--transition-curve);
+            transition: background-color var(--transition-speed), color var(--transition-speed);
             scroll-behavior: smooth;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: -1;
         }
 
         a {
@@ -118,158 +87,77 @@
 
         /* HEADER STYLES */
         .site-header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+            background-color: var(--primary-color);
             color: white;
-            padding: var(--space-2xl) 0;
+            padding: var(--space-xl) 0;
             position: relative;
-            overflow: hidden;
-        }
-
-        .site-header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: 
-                radial-gradient(circle at 30% 40%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 70% 60%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
-            animation: float 20s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(30px, -30px) rotate(120deg); }
-            66% { transform: translate(-20px, 20px) rotate(240deg); }
         }
 
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: var(--space-xl);
-            position: relative;
-            z-index: 2;
+            gap: var(--space-md);
         }
 
         .header-info {
             flex: 2;
-            animation: slideInLeft 1s ease-out;
-        }
-
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(50px); }
-            to { opacity: 1; transform: translateX(0); }
         }
 
         .header-info h1 {
-            font-size: 3.5rem;
-            margin-bottom: var(--space-sm);
-            font-weight: 800;
+            font-size: 3rem;
+            margin-bottom: var(--space-xs);
+            font-weight: 700;
             letter-spacing: -0.025em;
-            background: linear-gradient(135deg, #ffffff 0%, var(--accent-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
         }
 
         .job-title {
-            font-size: 1.5rem;
-            margin-bottom: var(--space-md);
-            color: var(--accent-light);
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            position: relative;
-        }
-
-        .job-title::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent-color) 0%, var(--secondary-color) 100%);
-            border-radius: 2px;
-            box-shadow: var(--glow-accent);
+            font-size: 1.4rem;
+            margin-bottom: var(--space-sm);
+            color: var(--accent-color);
+            font-weight: 500;
+            letter-spacing: 0.025em;
         }
 
         .header-summary {
             opacity: 0.95;
             line-height: 1.8;
-            font-size: 1.2rem;
-            max-width: 650px;
-            font-weight: 300;
+            font-size: 1.1rem;
+            max-width: 600px;
         }
 
         .header-image {
             flex: 1;
             text-align: center;
-            max-width: 250px;
-            animation: slideInRight 1s ease-out;
+            max-width: 200px;
         }
 
         .profile-img {
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
-            border: 6px solid rgba(255, 255, 255, 0.2);
+            border: 5px solid rgba(255, 255, 255, 0.3);
             object-fit: cover;
-            transition: all var(--transition-speed) var(--transition-curve);
-            box-shadow: 
-                var(--shadow-2xl),
-                0 0 40px rgba(16, 185, 129, 0.3),
-                inset 0 0 40px rgba(255, 255, 255, 0.1);
-            position: relative;
-        }
-
-        .profile-img::before {
-            content: '';
-            position: absolute;
-            top: -6px;
-            left: -6px;
-            right: -6px;
-            bottom: -6px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, var(--accent-color), var(--secondary-color), var(--accent-color));
-            z-index: -1;
-            opacity: 0;
-            transition: opacity var(--transition-speed);
+            transition: all var(--transition-speed);
+            box-shadow: var(--shadow-lg);
         }
 
         .profile-img:hover {
-            transform: scale(1.08) rotate(2deg);
-            border-color: var(--accent-light);
-            box-shadow: 
-                var(--shadow-2xl),
-                0 0 60px rgba(16, 185, 129, 0.6),
-                inset 0 0 40px rgba(255, 255, 255, 0.2);
-        }
-
-        .profile-img:hover::before {
-            opacity: 1;
+            transform: scale(1.05);
+            border-color: var(--accent-color);
+            box-shadow: var(--shadow-xl);
         }
 
         /* NAVIGATION STYLES */
         .site-nav {
-            background: rgba(15, 23, 42, 0.95);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding: var(--space-md) 0;
+            background-color: var(--primary-color);
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding: var(--space-sm) 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: var(--shadow-lg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-md);
+            backdrop-filter: blur(10px);
         }
 
         .nav-container {
@@ -281,71 +169,23 @@
         .nav-list {
             display: flex;
             list-style: none;
-            gap: var(--space-lg);
+            gap: var(--space-md);
         }
 
         .nav-item a {
-            color: rgba(255, 255, 255, 0.9);
+            color: white;
             text-decoration: none;
-            font-weight: 600;
-            transition: all var(--transition-speed) var(--transition-curve);
-            padding: var(--space-sm) var(--space-md);
-            border-radius: var(--border-radius-sm);
+            font-weight: 500;
+            transition: all var(--transition-speed);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: 6px;
             position: relative;
-            overflow: hidden;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .nav-item a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, 
-                rgba(16, 185, 129, 0.1) 0%, 
-                rgba(59, 130, 246, 0.1) 50%, 
-                rgba(16, 185, 129, 0.1) 100%);
-            opacity: 0;
-            transition: opacity var(--transition-speed) var(--transition-curve);
-            z-index: -1;
-        }
-
-        .nav-item a::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, 
-                var(--accent-color) 0%, 
-                var(--secondary-color) 50%, 
-                var(--accent-color) 100%);
-            transform: scaleX(0);
-            transition: transform var(--transition-speed) var(--transition-curve);
-            transform-origin: center;
         }
 
         .nav-item a:hover {
-            color: var(--accent-light);
-            background: rgba(16, 185, 129, 0.15);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-            border-color: rgba(16, 185, 129, 0.3);
-        }
-
-        .nav-item a:hover::before {
-            opacity: 1;
-        }
-
-        .nav-item a:hover::after {
-            transform: scaleX(1);
+            color: var(--accent-color);
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-1px);
         }
 
         .nav-item a:focus {
@@ -356,37 +196,36 @@
         /* THEME TOGGLE STYLES */
         .theme-toggle,
         .theme-toggle-nav {
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: transparent;
+            border: none;
             color: white;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             cursor: pointer;
-            transition: all var(--transition-speed) var(--transition-curve);
-            width: 50px;
-            height: 50px;
+            transition: transform var(--transition-speed), opacity var(--transition-speed);
+            width: 40px;
+            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            backdrop-filter: blur(10px);
         }
 
         .theme-toggle {
             position: absolute;
-            top: var(--space-lg);
-            right: var(--space-lg);
+            top: var(--space-md);
+            right: var(--space-md);
+            background-color: rgba(0, 0, 0, 0.2);
         }
 
         .theme-toggle-nav {
+            background-color: rgba(0, 0, 0, 0.3);
             display: none;
         }
 
         .theme-toggle:hover,
         .theme-toggle-nav:hover {
-            transform: rotate(180deg) scale(1.1);
-            background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%);
-            border-color: transparent;
-            box-shadow: var(--glow-accent);
+            transform: rotate(15deg);
+            background-color: rgba(0, 0, 0, 0.4);
         }
 
         /* MAIN CONTENT STYLES */
@@ -395,14 +234,14 @@
         }
 
         .section-title {
-            font-size: 2.8rem;
+            font-size: 2.2rem;
             color: var(--primary-color);
-            margin-bottom: var(--space-xl);
+            margin-bottom: var(--space-lg);
             position: relative;
-            padding-bottom: var(--space-md);
+            padding-bottom: var(--space-sm);
             display: flex;
             align-items: center;
-            font-weight: 800;
+            font-weight: 700;
             letter-spacing: -0.025em;
         }
 
@@ -411,11 +250,10 @@
             position: absolute;
             left: 0;
             bottom: 0;
-            width: 80px;
-            height: 5px;
-            background: linear-gradient(90deg, var(--accent-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
-            border-radius: 3px;
-            box-shadow: var(--glow-accent);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color) 0%, var(--secondary-color) 100%);
+            border-radius: 2px;
         }
 
         .section-title i {
@@ -425,16 +263,15 @@
 
         /* CARD STYLES */
         .card {
-            background: var(--card-bg-color);
+            background-color: var(--card-bg-color);
             border-radius: var(--border-radius);
-            padding: var(--space-xl);
-            margin-bottom: var(--space-lg);
-            box-shadow: var(--shadow-md);
-            transition: all var(--transition-speed) var(--transition-curve);
-            border: 1px solid rgba(59, 130, 246, 0.1);
+            padding: var(--space-lg);
+            margin-bottom: var(--space-md);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-speed);
+            border: 1px solid rgba(0, 0, 0, 0.05);
             position: relative;
             overflow: hidden;
-            backdrop-filter: blur(10px);
         }
 
         .card::before {
@@ -443,38 +280,19 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-color) 0%, var(--secondary-color) 100%);
             opacity: 0;
             transition: opacity var(--transition-speed);
-        }
-
-        .card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.01) 0%, rgba(59, 130, 246, 0.01) 100%);
-            opacity: 0;
-            transition: opacity var(--transition-speed);
-            pointer-events: none;
         }
 
         .card:hover {
-            transform: translateY(-12px);
-            box-shadow: var(--shadow-2xl);
-            border-color: rgba(16, 185, 129, 0.3);
-            background: var(--card-bg-hover);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(0, 0, 0, 0.1);
         }
 
         .card:hover::before {
-            opacity: 1;
-            box-shadow: var(--glow-accent);
-        }
-
-        .card:hover::after {
             opacity: 1;
         }
 
@@ -522,63 +340,41 @@
         }
 
         .tag {
-            padding: 0.6rem 1rem;
-            border-radius: var(--border-radius-lg);
-            font-size: 0.9rem;
-            font-weight: 700;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
             display: inline-flex;
             align-items: center;
-            transition: all var(--transition-speed) var(--transition-curve);
-            border: 2px solid transparent;
-            backdrop-filter: blur(10px);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            transition: all var(--transition-speed);
+            border: 1px solid transparent;
         }
 
         .tag:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
         }
 
         .tag i {
-            margin-right: 0.5rem;
-            font-size: 1rem;
+            margin-right: 0.3rem;
         }
 
         .tag-qa {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(52, 211, 153, 0.25) 100%);
+            background: linear-gradient(135deg, rgba(0, 184, 148, 0.1) 0%, rgba(0, 184, 148, 0.2) 100%);
             color: var(--accent-color);
-            border-color: rgba(16, 185, 129, 0.3);
-        }
-
-        .tag-qa:hover {
-            background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-light) 100%);
-            color: white;
-            box-shadow: var(--glow-accent);
+            border-color: rgba(0, 184, 148, 0.2);
         }
 
         .tag-security {
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(248, 113, 113, 0.25) 100%);
-            color: #ef4444;
-            border-color: rgba(239, 68, 68, 0.3);
-        }
-
-        .tag-security:hover {
-            background: linear-gradient(135deg, #ef4444 0%, #f87171 100%);
-            color: white;
-            box-shadow: var(--glow-security);
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(255, 107, 107, 0.2) 100%);
+            color: #ff6b6b;
+            border-color: rgba(255, 107, 107, 0.2);
         }
 
         .tag-ai {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(96, 165, 250, 0.25) 100%);
+            background: linear-gradient(135deg, rgba(0, 102, 204, 0.1) 0%, rgba(0, 102, 204, 0.2) 100%);
             color: var(--secondary-color);
-            border-color: rgba(59, 130, 246, 0.3);
-        }
-
-        .tag-ai:hover {
-            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-light) 100%);
-            color: white;
-            box-shadow: var(--glow-primary);
+            border-color: rgba(0, 102, 204, 0.2);
         }
 
         /* SKILLS STYLES */
@@ -589,15 +385,14 @@
         }
 
         .skill-group {
-            background: var(--card-bg-color);
+            background-color: var(--card-bg-color);
             border-radius: var(--border-radius);
-            padding: var(--space-xl);
-            box-shadow: var(--shadow-md);
-            transition: all var(--transition-speed) var(--transition-curve);
-            border: 1px solid rgba(59, 130, 246, 0.1);
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-speed);
+            border: 1px solid rgba(0, 0, 0, 0.05);
             position: relative;
             overflow: hidden;
-            backdrop-filter: blur(10px);
         }
 
         .skill-group::before {
@@ -606,37 +401,19 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-color) 0%, var(--secondary-color) 100%);
             opacity: 0;
             transition: opacity var(--transition-speed);
-        }
-
-        .skill-group::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.01) 0%, rgba(59, 130, 246, 0.01) 100%);
-            opacity: 0;
-            transition: opacity var(--transition-speed);
-            pointer-events: none;
         }
 
         .skill-group:hover {
-            transform: translateY(-12px);
-            box-shadow: var(--shadow-2xl);
-            border-color: rgba(16, 185, 129, 0.3);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(0, 0, 0, 0.1);
         }
 
         .skill-group:hover::before {
-            opacity: 1;
-            box-shadow: var(--glow-accent);
-        }
-
-        .skill-group:hover::after {
             opacity: 1;
         }
 
@@ -687,12 +464,11 @@
         }
 
         .skill-bar {
-            height: 12px;
-            background: linear-gradient(90deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.08) 100%);
-            border-radius: 6px;
+            height: 10px;
+            background-color: rgba(0, 0, 0, 0.08);
+            border-radius: 5px;
             overflow: hidden;
             position: relative;
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .skill-bar::before {
@@ -702,8 +478,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
-            animation: shimmer 3s infinite;
+            background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
+            animation: shimmer 2s infinite;
         }
 
         @keyframes shimmer {
@@ -714,47 +490,24 @@
         .skill-progress {
             height: 100%;
             width: 0;
-            transition: width 2s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: width 1.8s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
-            border-radius: 6px;
-            overflow: hidden;
-        }
-
-        .skill-progress::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.2) 100%);
-            animation: skillShine 2s infinite;
-        }
-
-        @keyframes skillShine {
-            0%, 100% { opacity: 0; }
-            50% { opacity: 1; }
+            border-radius: 5px;
         }
 
         .skill-group-qa .skill-progress {
-            background: linear-gradient(90deg, var(--accent-color) 0%, var(--accent-light) 50%, var(--accent-color) 100%);
-            box-shadow: 
-                0 0 15px rgba(16, 185, 129, 0.4),
-                inset 0 1px 2px rgba(255, 255, 255, 0.3);
+            background: linear-gradient(90deg, var(--accent-color) 0%, #26DFD6 100%);
+            box-shadow: 0 0 10px rgba(0, 184, 148, 0.3);
         }
 
         .skill-group-security .skill-progress {
-            background: linear-gradient(90deg, #ef4444 0%, #f87171 50%, #ef4444 100%);
-            box-shadow: 
-                0 0 15px rgba(239, 68, 68, 0.4),
-                inset 0 1px 2px rgba(255, 255, 255, 0.3);
+            background: linear-gradient(90deg, #ff6b6b 0%, #FF8E8E 100%);
+            box-shadow: 0 0 10px rgba(255, 107, 107, 0.3);
         }
 
         .skill-group-ai .skill-progress {
-            background: linear-gradient(90deg, var(--secondary-color) 0%, var(--secondary-light) 50%, var(--secondary-color) 100%);
-            box-shadow: 
-                0 0 15px rgba(59, 130, 246, 0.4),
-                inset 0 1px 2px rgba(255, 255, 255, 0.3);
+            background: linear-gradient(90deg, var(--secondary-color) 0%, #4A90E2 100%);
+            box-shadow: 0 0 10px rgba(0, 102, 204, 0.3);
         }
 
         /* PROJECTS STYLES */
@@ -765,15 +518,14 @@
         }
 
         .project-card {
-            background: var(--card-bg-color);
+            background-color: var(--card-bg-color);
             border-radius: var(--border-radius);
             overflow: hidden;
-            box-shadow: var(--shadow-md);
-            transition: all var(--transition-speed) var(--transition-curve);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-speed);
             height: 100%;
-            border: 1px solid rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
             position: relative;
-            backdrop-filter: blur(10px);
         }
 
         .project-card::before {
@@ -783,38 +535,13 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, var(--accent-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
-            opacity: 0;
-            transition: opacity var(--transition-speed);
-        }
-
-        .project-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.01) 0%, rgba(59, 130, 246, 0.01) 100%);
-            opacity: 0;
-            transition: opacity var(--transition-speed);
-            pointer-events: none;
+            background: linear-gradient(90deg, var(--accent-color) 0%, var(--secondary-color) 100%);
         }
 
         .project-card:hover {
-            transform: translateY(-12px);
-            box-shadow: var(--shadow-2xl);
-            border-color: rgba(16, 185, 129, 0.3);
-            background: var(--card-bg-hover);
-        }
-
-        .project-card:hover::before {
-            opacity: 1;
-            box-shadow: var(--glow-accent);
-        }
-
-        .project-card:hover::after {
-            opacity: 1;
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(0, 0, 0, 0.1);
         }
 
         .project-content {
@@ -878,17 +605,16 @@
         }
 
         .contact-card {
-            background: var(--card-bg-color);
+            background-color: var(--card-bg-color);
             border-radius: var(--border-radius);
-            padding: var(--space-xl);
-            box-shadow: var(--shadow-md);
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-sm);
             display: flex;
             align-items: center;
-            transition: all var(--transition-speed) var(--transition-curve);
-            border: 1px solid rgba(59, 130, 246, 0.1);
+            transition: all var(--transition-speed);
+            border: 1px solid rgba(0, 0, 0, 0.05);
             position: relative;
             overflow: hidden;
-            backdrop-filter: blur(10px);
         }
 
         .contact-card::before {
@@ -897,38 +623,19 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-color) 0%, var(--secondary-color) 100%);
             opacity: 0;
             transition: opacity var(--transition-speed);
-        }
-
-        .contact-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.01) 0%, rgba(59, 130, 246, 0.01) 100%);
-            opacity: 0;
-            transition: opacity var(--transition-speed);
-            pointer-events: none;
         }
 
         .contact-card:hover {
-            transform: translateY(-12px);
-            box-shadow: var(--shadow-2xl);
-            border-color: rgba(16, 185, 129, 0.3);
-            background: var(--card-bg-hover);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(0, 0, 0, 0.1);
         }
 
         .contact-card:hover::before {
-            opacity: 1;
-            box-shadow: var(--glow-accent);
-        }
-
-        .contact-card:hover::after {
             opacity: 1;
         }
 
@@ -998,24 +705,14 @@
 
         /* DARK MODE STYLES */
         body.dark-mode {
-            --bg-color: #0f1419 !important;
-            --bg-gradient: linear-gradient(135deg, #0f1419 0%, #1a202c 100%) !important;
-            --text-color: #e2e8f0 !important;
-            --card-bg-color: #1e293b !important;
-            --card-bg-hover: #334155 !important;
-            --primary-color: #475569 !important;
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.5) !important;
-            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.25) !important;
-            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.4), 0 4px 6px rgba(0, 0, 0, 0.2) !important;
-            --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.5), 0 8px 10px rgba(0, 0, 0, 0.3) !important;
-            --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.6), 0 10px 20px rgba(0, 0, 0, 0.4) !important;
-        }
-
-        body.dark-mode::before {
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(139, 92, 246, 0.05) 0%, transparent 50%) !important;
+            --bg-color: #0f1419;
+            --text-color: #e2e8f0;
+            --card-bg-color: #1a202c;
+            --primary-color: #2d3748;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.4);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.25), 0 4px 10px rgba(0, 0, 0, 0.15);
+            --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.3), 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
         body.dark-mode .section-title,
@@ -1023,28 +720,22 @@
         body.dark-mode .skill-group-title,
         body.dark-mode .project-title,
         body.dark-mode .contact-info h3 {
-            color: var(--text-light-color) !important;
+            color: var(--text-light-color);
         }
 
         body.dark-mode .card,
         body.dark-mode .skill-group,
         body.dark-mode .project-card,
         body.dark-mode .contact-card {
-            border-color: rgba(255, 255, 255, 0.1) !important;
-            background: rgba(30, 41, 59, 0.8) !important;
-            backdrop-filter: blur(20px) !important;
+            border-color: rgba(255, 255, 255, 0.1);
         }
 
         body.dark-mode .skill-bar {
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.15) 100%) !important;
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
         body.dark-mode .nav-item a:hover {
-            background-color: rgba(16, 185, 129, 0.2) !important;
-        }
-
-        body.dark-mode .site-nav {
-            background: rgba(15, 23, 42, 0.98) !important;
+            background-color: rgba(255, 255, 255, 0.15);
         }
 
         /* RESPONSIVE STYLES */
@@ -1165,8 +856,8 @@
             <div class="header-content">
                 <div class="header-info">
                     <h1>Murat ÖRÜN</h1>
-                    <p class="job-title">Test Mühendisi | RPA Uzmanı | Otomasyon Specialisti</p>
-                    <p class="header-summary">2019 yılından bu yana Turkcell bünyesinde uygulamaların test süreçlerinde aktif olarak görev almaktayım. RPA, Selenium ve Testroyer gibi araçları kullanarak uçtan uca test otomasyon çözümleri tasarlıyor ve hayata geçiriyorum. Change Management ve TLife dönüşüm projelerinde kritik roller üstlenerek Flowbox Ultia projesinin test süreçlerini yönetiyorum.</p>
+                    <p class="job-title">QA Engineer | Cyber Security Specialist | AI Enthusiast</p>
+                    <p class="header-summary">Profesyonel yazılım test ve kalite güvence uzmanı olarak, güvenlikten taviz vermeden mükemmelliği hedefliyorum. Siber güvenlik ve yapay zeka alanlarında kendimi geliştirerek, teknolojiyle güvenli ve yenilikçi çözümler üretiyorum.</p>
                 </div>
                 <div class="header-image">
                     <img src="ppImage.jpeg" alt="Murat ÖRÜN" class="profile-img">
@@ -1200,19 +891,14 @@
             <div class="container">
                 <h2 class="section-title"><i class="fas fa-user-shield" aria-hidden="true"></i>Hakkımda</h2>
                 <div class="card">
-                    <p>2019 yılından bu yana Turkcell bünyesinde uygulamaların test süreçlerinde aktif olarak görev almaktayım. RPA, Selenium ve Testroyer gibi araçları kullanarak uçtan uca test otomasyon çözümleri tasarlıyor ve hayata geçiriyorum. Otomasyon ve RPA alanındaki uzmanlığım sayesinde tekrarlayan test süreçlerini optimize ederek insan hatasını minimize ediyor, operasyonel verimliliği artırıyor ve kalite güvence süreçlerine katkı sağlıyorum.</p>
-                    
-                    <p>Bu süre zarfında, Change Management (CAB) ekibinde 2 yıl boyunca değişiklik yönetimi süreçlerinde yer alarak projelerin sorunsuz devreye alımına destek oldum. Ayrıca, TLife uygulamasının dönüşüm projesinde test otomasyonu ve manuel test süreçlerini yöneterek başarılı bir geçiş sağlanmasında önemli bir rol oynadım.</p>
-                    
-                    <p>Şu anda ise Flowbox Ultia projesinin test, otomasyon ve devreye alım süreçlerini yürütmekteyim. İhtiyaç duyulması halinde analiz dokümanları hazırlayarak proje ekibine teknik ve fonksiyonel açıdan destek sağlıyorum.</p>
-                    
+                    <p>Yazılım kalite güvencesine olan tutkumla birlikte, siber güvenlik ve yapay zeka alanlarındaki bilgi birikimimi sürekli geliştirmekteyim. 5+ yıllık QA Engineer deneyimimle, kritik uygulamaların güvenlik açıklarını tespit etmekte ve sorunları çözmekte uzmanlaştım. Müşteri odaklı yaklaşımım ve analitik düşünce yapım sayesinde, yazılım geliştirme süreçlerinin her aşamasında kaliteyi arttırmak için çalışıyorum.</p>
                     <div class="tags">
-                        <span class="tag tag-qa"><i class="fas fa-robot" aria-hidden="true"></i>RPA</span>
-                        <span class="tag tag-qa"><i class="fas fa-check-circle" aria-hidden="true"></i>Selenium</span>
-                        <span class="tag tag-qa"><i class="fas fa-cog" aria-hidden="true"></i>Testroyer</span>
-                        <span class="tag tag-qa"><i class="fas fa-sync-alt" aria-hidden="true"></i>Change Management</span>
-                        <span class="tag tag-qa"><i class="fas fa-rocket" aria-hidden="true"></i>Flowbox Ultia</span>
-                        <span class="tag tag-qa"><i class="fas fa-mobile-alt" aria-hidden="true"></i>TLife Projesi</span>
+                        <span class="tag tag-qa"><i class="fas fa-check-circle" aria-hidden="true"></i>Test Otomasyonu</span>
+                        <span class="tag tag-security"><i class="fas fa-shield-alt" aria-hidden="true"></i>Penetrasyon Testleri</span>
+                        <span class="tag tag-ai"><i class="fas fa-robot" aria-hidden="true"></i>AI Destekli Test</span>
+                        <span class="tag tag-qa"><i class="fas fa-code" aria-hidden="true"></i>CI/CD Pipeline</span>
+                        <span class="tag tag-security"><i class="fas fa-lock" aria-hidden="true"></i>Güvenlik Testleri</span>
+                        <span class="tag tag-ai"><i class="fas fa-brain" aria-hidden="true"></i>Makine Öğrenmesi</span>
                     </div>
                 </div>
             </div>
@@ -1224,43 +910,37 @@
                 <h2 class="section-title"><i class="fas fa-briefcase" aria-hidden="true"></i>İş Deneyimi</h2>
                 
                 <div class="card">
-                    <h3 class="card-title"><i class="fas fa-briefcase" aria-hidden="true"></i>Test Mühendisi</h3>
-                    <h4 class="card-subtitle">Turkcell Global Bilgi</h4>
-                    <p class="card-meta"><i class="far fa-calendar-alt" aria-hidden="true"></i>2019 - Günümüz</p>
+                    <h3 class="card-title"><i class="fas fa-bug" aria-hidden="true"></i>Senior QA Engineer</h3>
+                    <h4 class="card-subtitle">Tech Solutions A.Ş.</h4>
+                    <p class="card-meta"><i class="far fa-calendar-alt" aria-hidden="true"></i>Ocak 2022 - Günümüz</p>
                     <ul>
-                        <li>RPA, Selenium ve Testroyer araçları kullanarak uçtan uca test otomasyon çözümleri tasarlama ve hayata geçirme</li>
-                        <li>Change Management (CAB) ekibinde 2 yıl boyunca değişiklik yönetimi süreçlerinde yer alma</li>
-                        <li>TLife uygulamasının dönüşüm projesinde test otomasyonu ve manuel test süreçlerini yönetme</li>
-                        <li>Flowbox Ultia projesinin test, otomasyon ve devreye alım süreçlerini yürütme</li>
-                        <li>Tekrarlayan test süreçlerini optimize ederek insan hatasını minimize etme</li>
-                        <li>Operasyonel verimliliği artırma ve kalite güvence süreçlerine katkı sağlama</li>
-                        <li>İhtiyaç duyulması halinde analiz dokümanları hazırlayarak proje ekibine teknik ve fonksiyonel destek sağlama</li>
+                        <li>Finans sektörüne yönelik geliştirilmiş yazılım çözümlerinin kalite güvence süreçlerini yönetmek</li>
+                        <li>AI destekli test otomasyon süreçlerini kurmak ve geliştirmek</li>
+                        <li>OWASP Top 10 açıklarına karşı güvenlik testlerini gerçekleştirmek</li>
+                        <li>DevSecOps süreçlerine entegre olarak sürekli güvenlik testi sağlamak</li>
                     </ul>
                     <div class="tags">
-                        <span class="tag tag-qa"><i class="fas fa-robot" aria-hidden="true"></i>RPA</span>
                         <span class="tag tag-qa"><i class="fas fa-check-circle" aria-hidden="true"></i>Selenium</span>
-                        <span class="tag tag-qa"><i class="fas fa-cog" aria-hidden="true"></i>Testroyer</span>
-                        <span class="tag tag-qa"><i class="fas fa-sync-alt" aria-hidden="true"></i>Change Management</span>
+                        <span class="tag tag-qa"><i class="fas fa-check-circle" aria-hidden="true"></i>Jenkins</span>
+                        <span class="tag tag-security"><i class="fas fa-shield-alt" aria-hidden="true"></i>OWASP ZAP</span>
+                        <span class="tag tag-ai"><i class="fas fa-robot" aria-hidden="true"></i>TensorFlow</span>
                     </div>
                 </div>
                 
                 <div class="card">
-                    <h3 class="card-title"><i class="fas fa-share-alt" aria-hidden="true"></i>Sosyal Medya Yöneticisi</h3>
-                    <h4 class="card-subtitle">Turkcell Global Bilgi</h4>
-                    <p class="card-meta"><i class="far fa-calendar-alt" aria-hidden="true"></i>2012 - 2018</p>
+                    <h3 class="card-title"><i class="fas fa-bug" aria-hidden="true"></i>QA Engineer</h3>
+                    <h4 class="card-subtitle">Siber Güvenlik Sistemleri Ltd.</h4>
+                    <p class="card-meta"><i class="far fa-calendar-alt" aria-hidden="true"></i>Mart 2019 - Aralık 2021</p>
                     <ul>
-                        <li>Kurumsal sosyal medya stratejilerinin geliştirilmesi ve yürütülmesi</li>
-                        <li>İçerik planlama ve sosyal medya kampanyalarının koordinasyonu</li>
-                        <li>Dijital pazarlama faaliyetlerinin yönetimi ve analizi</li>
-                        <li>Müşteri etkileşimi ve topluluk yönetimi süreçlerinin optimize edilmesi</li>
-                        <li>Sosyal medya performans metrikleri ve raporlama sistemlerinin kurulması</li>
-                        <li>Marka bilinirliği ve dijital varlık güçlendirme çalışmaları</li>
+                        <li>Güvenlik odaklı yazılım çözümlerinin test süreçlerini yürütmek</li>
+                        <li>Penetrasyon testleri ile olası güvenlik açıklarını tespit etmek</li>
+                        <li>Test otomasyon araçları ile CI/CD süreçlerini desteklemek</li>
+                        <li>Test stratejileri ve test planları oluşturmak</li>
                     </ul>
                     <div class="tags">
-                        <span class="tag tag-ai"><i class="fas fa-hashtag" aria-hidden="true"></i>Sosyal Medya</span>
-                        <span class="tag tag-ai"><i class="fas fa-chart-line" aria-hidden="true"></i>Dijital Pazarlama</span>
-                        <span class="tag tag-ai"><i class="fas fa-users" aria-hidden="true"></i>Topluluk Yönetimi</span>
-                        <span class="tag tag-ai"><i class="fas fa-bullhorn" aria-hidden="true"></i>İçerik Stratejisi</span>
+                        <span class="tag tag-security"><i class="fas fa-shield-alt" aria-hidden="true"></i>Burp Suite</span>
+                        <span class="tag tag-qa"><i class="fas fa-check-circle" aria-hidden="true"></i>Cypress</span>
+                        <span class="tag tag-qa"><i class="fas fa-check-circle" aria-hidden="true"></i>GitLab CI</span>
                     </div>
                 </div>
             </div>
@@ -1272,41 +952,26 @@
                 <h2 class="section-title"><i class="fas fa-graduation-cap" aria-hidden="true"></i>Eğitim</h2>
                 
                 <div class="card">
-                    <h3 class="card-title"><i class="fas fa-university" aria-hidden="true"></i>Yüksek Lisans, Bilgisayar Mühendisliği ABD - Bilgi Teknolojileri</h3>
-                    <h4 class="card-subtitle">Yıldız Teknik Üniversitesi</h4>
-                    <p class="card-meta"><i class="far fa-calendar-alt" aria-hidden="true"></i>2025 - Devam Ediyor</p>
-                    <p>Bilgi teknolojileri, ileri seviye yazılım mühendisliği, sistem analizi ve tasarımı, makine öğrenmesi ve veri analizi konularında kapsamlı akademik eğitim almaktayım.</p>
+                    <h3 class="card-title"><i class="fas fa-university" aria-hidden="true"></i>Yüksek Lisans, Siber Güvenlik</h3>
+                    <h4 class="card-subtitle">İstanbul Teknik Üniversitesi</h4>
+                    <p class="card-meta"><i class="far fa-calendar-alt" aria-hidden="true"></i>2020 - 2022</p>
+                    <p>Ağ güvenliği, kriptografi, güvenli yazılım geliştirme ve etik hacking konularında uzmanlaşma.</p>
                     <div class="tags">
-                        <span class="tag tag-ai"><i class="fas fa-code" aria-hidden="true"></i>Yazılım Mühendisliği</span>
+                        <span class="tag tag-security"><i class="fas fa-shield-alt" aria-hidden="true"></i>Ağ Güvenliği</span>
+                        <span class="tag tag-security"><i class="fas fa-lock" aria-hidden="true"></i>Kriptografi</span>
+                        <span class="tag tag-security"><i class="fas fa-user-secret" aria-hidden="true"></i>Etik Hacking</span>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-university" aria-hidden="true"></i>Lisans, Bilgisayar Mühendisliği</h3>
+                    <h4 class="card-subtitle">Boğaziçi Üniversitesi</h4>
+                    <p class="card-meta"><i class="far fa-calendar-alt" aria-hidden="true"></i>2015 - 2019</p>
+                    <p>Yazılım geliştirme, veri yapıları, algoritmalar ve makine öğrenmesi temelleri üzerine eğitim.</p>
+                    <div class="tags">
+                        <span class="tag tag-qa"><i class="fas fa-code" aria-hidden="true"></i>Yazılım Geliştirme</span>
                         <span class="tag tag-ai"><i class="fas fa-brain" aria-hidden="true"></i>Makine Öğrenmesi</span>
-                        <span class="tag tag-ai"><i class="fas fa-chart-bar" aria-hidden="true"></i>Veri Analizi</span>
-                        <span class="tag tag-ai"><i class="fas fa-sitemap" aria-hidden="true"></i>Sistem Analizi</span>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <h3 class="card-title"><i class="fas fa-university" aria-hidden="true"></i>Lisans, Yönetim Bilişim Sistemleri</h3>
-                    <h4 class="card-subtitle">İstanbul Üniversitesi</h4>
-                    <p class="card-meta"><i class="far fa-calendar-alt" aria-hidden="true"></i>2019 - 2024</p>
-                    <p>Bilişim sistemleri yönetimi, iş süreçleri analizi, proje yönetimi, veri tabanı yönetimi ve sistem entegrasyonu konularında kapsamlı eğitim aldım. İş dünyası ile teknoloji arasındaki köprüyü kurmaya yönelik bilgi ve beceriler kazandım.</p>
-                    <div class="tags">
-                        <span class="tag tag-qa"><i class="fas fa-tasks" aria-hidden="true"></i>Proje Yönetimi</span>
-                        <span class="tag tag-qa"><i class="fas fa-database" aria-hidden="true"></i>Veri Tabanı Yönetimi</span>
-                        <span class="tag tag-qa"><i class="fas fa-cogs" aria-hidden="true"></i>Sistem Entegrasyonu</span>
-                        <span class="tag tag-ai"><i class="fas fa-chart-line" aria-hidden="true"></i>İş Süreçleri Analizi</span>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <h3 class="card-title"><i class="fas fa-code" aria-hidden="true"></i>Ön Lisans, Bilgisayar Programcılığı</h3>
-                    <h4 class="card-subtitle">Selçuk Üniversitesi</h4>
-                    <p class="card-meta"><i class="far fa-calendar-alt" aria-hidden="true"></i>2008 - 2010</p>
-                    <p>Programlama dilleri, algoritma geliştirme, web tasarımı ve temel yazılım geliştirme konularında temel eğitim aldım. Teknik kariyer yolculuğumun başlangıç noktası olan bu eğitimde, programlama mantığı ve yazılım geliştirme süreçlerine dair temel bilgileri edindim.</p>
-                    <div class="tags">
-                        <span class="tag tag-qa"><i class="fas fa-code" aria-hidden="true"></i>Programlama</span>
-                        <span class="tag tag-qa"><i class="fas fa-globe" aria-hidden="true"></i>Web Tasarımı</span>
-                        <span class="tag tag-ai"><i class="fas fa-project-diagram" aria-hidden="true"></i>Algoritma</span>
-                        <span class="tag tag-qa"><i class="fas fa-laptop-code" aria-hidden="true"></i>Yazılım Geliştirme</span>
+                        <span class="tag tag-ai"><i class="fas fa-database" aria-hidden="true"></i>Veri Yapıları</span>
                     </div>
                 </div>
             </div>
@@ -1618,32 +1283,11 @@
         
         // Tema değiştirme
         function toggleTheme() {
-            // Transition'ları geçici olarak devre dışı bırak
-            const allElements = document.querySelectorAll('*');
-            allElements.forEach(el => {
-                el.style.transition = 'none';
-            });
-            
-            // Dark mode class'ını toggle et
             body.classList.toggle('dark-mode');
-            
-            // Tüm elementleri zorla yeniden render et
-            body.style.display = 'none';
-            body.offsetHeight; // Trigger reflow
-            body.style.display = '';
-            
-            // Tema iconlarını güncelle
             updateThemeToggleIcon();
             
-            // Preference'ı kaydet
+            // Save preference to localStorage
             localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
-            
-            // Transition'ları geri getir
-            setTimeout(() => {
-                allElements.forEach(el => {
-                    el.style.transition = '';
-                });
-            }, 50);
         }
         
         // Tema toggle iconunu güncelleme
